@@ -21,6 +21,6 @@ bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > 
 // End Namespace
 }
 
-#include "tpp/compare_lib.tpp"
+#include "tpp/tensor_compare_lib.tpp"
 
 #endif
