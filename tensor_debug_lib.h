@@ -12,8 +12,6 @@ int linear(
   std::vector<std::vector<T> > & Ovec
   );
 
-}
-
 template <typename T>
 int convolution(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
