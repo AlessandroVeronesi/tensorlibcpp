@@ -4,16 +4,14 @@
 // Namespace
 namespace tensor_lib {
 
-template <unsigned bitwidth>
-constexpr long unsigned maxBitVal()
+constexpr unsigned maxBitVal(unsigned bitwidth)
 {
-  return (bitwidth==0)? 0x1 : ((maxBitVal<bitwidth-1>() << 1) | 0x1);
+  return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((maxBitVal(bitwidth-1) << 1) | 0x1));
 }
 
-template <unsigned bitwidth>
-constexpr long unsigned minNegBitVal()
+constexpr unsigned minNegBitVal(unsigned bitwidth)
 {
-  return (bitwidth==0)? 0x1 : ((maxBitVal<bitwidth-1>() << 1) | 0x0);
+  return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((minNegBitVal(bitwidth-1) << 1) | 0x0));
 }
 
 template <typename myType, unsigned bitwidth>

@@ -2,7 +2,7 @@
 #define _CONVOLUTION_TPP_
 
 template <typename T>
-int debug::convolution(
+int tensor_lib::debug::convolution(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
