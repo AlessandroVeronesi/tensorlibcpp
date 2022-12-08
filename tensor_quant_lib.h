@@ -73,17 +73,19 @@ inline void MaxMinObserver(
 //// Calibration
 
 template <typename T>
-inline void AffineCalibration(
-  T min,
-  T max,
+void tensor_lib::quantization::AffineCalibration(
+  const T min,
+  const T max,
+  const char bitwidth,
   T& scale,
   T& zero_point
   );
 
 template <typename T>
-inline void SymmetricCalibration(
-  T min,
-  T max,
+void tensor_lib::quantization::SymmetricCalibration(
+  const T min,
+  const T max,
+  const char bitwidth,
   T& scale,
   T& zero_point
   );
