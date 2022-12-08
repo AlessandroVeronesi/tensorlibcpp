@@ -6,5 +6,6 @@
 #include "tensor_manipulate_lib.h"
 #include "tensor_display_lib.h"
 #include "tensor_debug_lib.h"
+#include "tensor_quant_lib.h"
 
 #endif
