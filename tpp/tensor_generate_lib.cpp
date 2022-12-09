@@ -74,7 +74,7 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<std::vector<myTy
 
 template <typename myType>
 void tensor_lib::randTensor(
-  std::vector<myType> & foo
+  std::vector<myType> & foo,
   const myType low_bound, const myType high_bound
   )
 {
@@ -90,7 +90,7 @@ void tensor_lib::randTensor(
 
 template <typename myType>
 void tensor_lib::randTensor(
-  std::vector<std::vector<myType> > & foo
+  std::vector<std::vector<myType> > & foo,
   const myType low_bound, const myType high_bound
   )
 {
@@ -109,7 +109,7 @@ void tensor_lib::randTensor(
 
 template <typename myType>
 void tensor_lib::randTensor(
-  std::vector<std::vector<std::vector<myType> > >& foo
+  std::vector<std::vector<std::vector<myType> > >& foo,
   const myType low_bound, const myType high_bound
   )
 {
@@ -130,7 +130,7 @@ void tensor_lib::randTensor(
 
 template <typename myType>
 void tensor_lib::randTensor(
-  std::vector<std::vector<std::vector<std::vector<myType> > > >& foo
+  std::vector<std::vector<std::vector<std::vector<myType> > > >& foo,
   const myType low_bound, const myType high_bound
   )
 {
