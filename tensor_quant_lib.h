@@ -168,6 +168,6 @@ void tensor_lib::quantization::Dequantize(
 
 }
 
-#include "tpp/tensor_quant_lib.tpp"
+#include "tpp/tensor_quant_lib.cpp"
 
 #endif

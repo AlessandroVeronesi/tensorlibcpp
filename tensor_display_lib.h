@@ -17,6 +17,6 @@ inline void print(std::vector<std::vector<std::vector<std::vector<T> > > > tenso
 
 }
 
-#include "tpp/tensor_display_lib.tpp"
+#include "tpp/tensor_display_lib.cpp"
 
 #endif

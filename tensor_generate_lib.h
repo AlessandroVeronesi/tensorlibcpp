@@ -28,6 +28,6 @@ void randTensor(std::vector<std::vector<std::vector<std::vector<myType> > > >& f
 
 }
 
-#include "tpp/tensor_generate_lib.tpp"
+#include "tpp/tensor_generate_lib.cpp"
 
 #endif

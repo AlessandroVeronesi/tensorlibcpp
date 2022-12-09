@@ -24,7 +24,7 @@ int convolution(
 
 }
 
-#include "tpp/linear.tpp"
-#include "tpp/convolution.tpp"
+#include "tpp/linear.cpp"
+#include "tpp/convolution.cpp"
 
 #endif

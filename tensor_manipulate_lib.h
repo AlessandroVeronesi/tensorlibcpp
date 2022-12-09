@@ -16,6 +16,6 @@ int rollFC_features(std::vector<myType>& Fvec, std::vector<std::vector<std::vect
 // End Namespace
 }
 
-#include "tpp/tensor_manipulate_lib.tpp"
+#include "tpp/tensor_manipulate_lib.cpp"
 
 #endif
