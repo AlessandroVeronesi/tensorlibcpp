@@ -4,7 +4,7 @@
 template <typename myType, unsigned bitwidth>
 void tensor_lib::randTensor(std::vector<myType> & foo)
 {
-  static_assert(std::is_integral<myType>, "randTensor: T must be integral to accept bitwidth");
+  static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
 
   unsigned C = foo.size();
 
