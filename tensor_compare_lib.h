@@ -5,7 +5,7 @@
 namespace tensor_lib {
 
 template <typename myType>
-bool compare2Darray(myType** A, myType** B, unsigned SizeY, unsigned SizeX);
+bool compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX);
 
 template <typename myType>
 bool compareTensors(std::vector<myType> & A, std::vector<myType> & B);
@@ -18,6 +18,7 @@ bool compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vec
 
 template <typename myType>
 bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B);
+
 // End Namespace
 }
 

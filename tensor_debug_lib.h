@@ -17,7 +17,7 @@ int convolution(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  unsigned Stride, unsigned Padding, unsigned Dilatation
+  const unsigned Stride, const unsigned Padding, const unsigned Dilatation
   );
 
 }

@@ -6,7 +6,7 @@ int tensor_lib::debug::convolution(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  unsigned Stride, unsigned Padding, unsigned Dilatation
+  const unsigned Stride, const unsigned Padding, const unsigned Dilatation
   )
 {
   //* ================================ *//
@@ -20,15 +20,15 @@ int tensor_lib::debug::convolution(
   //* ================================ *//
 
   // Input Tensors Shapes
-  unsigned H = InFmap[0][0][0].size();
-  unsigned W = InFmap[0][0].size();
-  unsigned C = InFmap[0].size();
-  unsigned BatchSize = InFmap.size();
+  const unsigned H = InFmap[0][0][0].size();
+  const unsigned W = InFmap[0][0].size();
+  const unsigned C = InFmap[0].size();
+  const unsigned BatchSize = InFmap.size();
 
-  unsigned R  = Kmap[0][0][0].size();
-  unsigned S  = Kmap[0][0].size();
-  unsigned Ck = Kmap[0].size();
-  unsigned K  = Kmap.size();
+  const unsigned R  = Kmap[0][0][0].size();
+  const unsigned S  = Kmap[0][0].size();
+  const unsigned Ck = Kmap[0].size();
+  const unsigned K  = Kmap.size();
 
   // Parameters Check
   if(!(Stride > 0)) {

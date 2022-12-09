@@ -2,7 +2,7 @@
 #define _TENSOR_COMPARE_LIB_TPP_
 
 template <typename myType>
-bool tensor_lib::compare2Darray(myType** A, myType** B, unsigned SizeY, unsigned SizeX)
+bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX)
 {
   for(unsigned i=0; i<SizeY; i++)
     for(unsigned j=0; j<SizeX; j++)
