@@ -22,6 +22,11 @@ constexpr unsigned myPow2(char p)
   return (p%2)? ((p==1)? 2 : (2*myPow2(p/2)*myPow2(p/2))) : ((p==0)? 1 : (myPow2(p/2)*myPow2(p/2)));
 }
 
+constexpr unsigned myLog2(unsigned p)
+{
+  return (p<2)? 0 : (1 + myLog2(p/2));
+}
+
 constexpr unsigned maxBitRange(char bitwidth)
 {
   return myPow2(bitwidth);
