@@ -53,7 +53,7 @@ template <typename oldT, typename newT> inline newT sign_extension(const oldT va
   newT extendedVal = val;
   if(sign)
     for(unsigned bit=oldBitwidth; bit<newBitwidth; bit++)
-      extendedVAl |= 0x1 << bit;
+      extendedVal |= 0x1 << bit;
 
   return extendedVal;
 }
