@@ -42,6 +42,21 @@ constexpr int maxNegBitRange(char bitwidth)
   return -myPow2(bitwidth-1);
 }
 
+template <typename oldT, typename newT> inline newT sign_extension(const oldT val, const unsigned oldBitwidth)
+{
+  static_assert(std::is_integral<newT>(), "ERROR(sign_extension): new type isn't integral");
+  static_assert(std::is_integral<oldT>(), "ERROR(sign_extension): old type isn't integral");
+
+  const unsigned newBitwidth = sizeof(newT)*8;
+  char sign = (val >> (oldBitwidth-1)) & 0x1;
+
+  newT extendedVal = val;
+  if(sign)
+    for(unsigned bit=oldBitwidth; bit<newBitwidth; bit++)
+      extendedVAl |= 0x1 << bit;
+
+  return extendedVal;
+}
 
 //// MinMaxObserver
 
