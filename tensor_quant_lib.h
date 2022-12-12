@@ -51,9 +51,11 @@ template <typename oldT, typename newT> inline newT sign_extension(const oldT va
   char sign = (val >> (oldBitwidth-1)) & 0x1;
 
   newT extendedVal = val;
-  if(sign)
+  if(sign) {
     for(unsigned bit=oldBitwidth; bit<newBitwidth; bit++)
       extendedVal |= 0x1 << bit;
+std::cerr << "\033[1;33m DEBUG: value extended from " << val << " to " << extendedVal << std::endl;
+  }
 
   return extendedVal;
 }

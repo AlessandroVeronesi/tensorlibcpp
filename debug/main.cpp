@@ -99,6 +99,8 @@ int main(int argc, char* argv[])
 
   std::cout << "-I: Int Linear calc" << std::endl;
 
+  tensor_lib::quantization::binPrint<long int>(intOut, 32);
+
   // Dequantize
   tensor_lib::quantization::Dequantize<long int, float>(intOut, floatOut_match, (iScale*wScale), 0);
 
