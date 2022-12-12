@@ -9,16 +9,6 @@ namespace quantization {
 
 constexpr unsigned myPow2(char p)
 {
-// if (p == 0) return 1;
-//  if (p == 1) return 2;
-//  
-//  int tmp = myPow2(p/2);
-//
-//  if (p%2 == 0)
-//    return tmp * tmp;
-//  else
-//    return 2 * tmp * tmp;
-
   return (p%2)? ((p==1)? 2 : (2*myPow2(p/2)*myPow2(p/2))) : ((p==0)? 1 : (myPow2(p/2)*myPow2(p/2)));
 }
 
@@ -41,23 +31,6 @@ constexpr int maxNegBitRange(char bitwidth)
 {
   return -myPow2(bitwidth-1);
 }
-
-//template <typename oldT, typename newT> inline newT sign_extension(const oldT val, const unsigned oldBitwidth)
-//{
-//  static_assert(std::is_integral<newT>(), "ERROR(sign_extension): new type isn't integral");
-//  static_assert(std::is_integral<oldT>(), "ERROR(sign_extension): old type isn't integral");
-//
-//  const unsigned newBitwidth = sizeof(newT)*8;
-//  char sign = (val >> (oldBitwidth-1)) & 0x1;
-//
-//  newT extendedVal = val;
-//  if(sign) {
-//    for(unsigned bit=oldBitwidth; bit<newBitwidth; bit++)
-//      extendedVal |= 0x1 << bit;
-//  }
-//
-//  return extendedVal;
-//}
 
 //// MinMaxObserver
 
