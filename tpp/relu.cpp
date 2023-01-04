@@ -36,18 +36,18 @@ int tensor_lib::debug::relu(
   //* ================================ *//
 
   // Input Tensors Shapes
-  unsigned BatchSize = InFvec.size();
-  unsigned C = InFvec[0].size();
-  unsigned H = InFvec[0][0].size();
-  unsigned W = InFvec[0][0][0].size();
+  unsigned BatchSize = InFmap.size();
+  unsigned C = InFmap[0].size();
+  unsigned H = InFmap[0][0].size();
+  unsigned W = InFmap[0][0][0].size();
 
   // Linear Computation
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++) 
       for(unsigned h=0; h<H; h++) 
         for(unsigned w=0; w<W; w++) 
-          if(InFvec[batch_idx][c][h][w] < 0)
-            InFvec[batch_idx][c][h][w] = (T) 0; 
+          if(InFmap[batch_idx][c][h][w] < 0)
+            InFmap[batch_idx][c][h][w] = (T) 0; 
 
   // Exit
   return 0;
