@@ -22,9 +22,20 @@ int convolution(
 
 }
 
+template <typename T>
+int relu(
+  std::vector<std::vector<T> > & InFvec
+  );
+
+template <typename T>
+int relu(
+  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap
+  );
+
 }
 
 #include "tpp/linear.cpp"
 #include "tpp/convolution.cpp"
+#include "tpp/relu.cpp"
 
 #endif
