@@ -20,8 +20,6 @@ int convolution(
   const unsigned Stride, const unsigned Padding, const unsigned Dilatation
   );
 
-}
-
 template <typename T>
 int relu(
   std::vector<std::vector<T> > & InFvec
@@ -31,6 +29,8 @@ template <typename T>
 int relu(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap
   );
+
+}
 
 }
 
