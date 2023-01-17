@@ -25,9 +25,9 @@ int convolution(
 // Bias
 template <typename T>
 int bias_add(
-  std::vector<std::vector<T> > & InFvec,
-  std::vector<T> & Bias,
-  std::vector<std::vector<T> > & Ovec
+  std::vector<std::vector<T> >& InFvec,
+  std::vector<T>& Bias,
+  std::vector<std::vector<T> >& Ovec
   );
 
 template <typename T>
@@ -40,14 +40,22 @@ int bias_add(
 // ReLU
 template <typename T>
 int relu(
-  std::vector<std::vector<T> > & InFvec,
-  std::vector<std::vector<T> > & Ovec
+  std::vector<std::vector<T> >& InFvec,
+  std::vector<std::vector<T> >& Ovec
   );
 
 template <typename T>
 int relu(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
+  );
+
+// MaxPool
+template <typename T>
+int max_pool(
+  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
+  const unsigned KernelSize
   );
 
 }
@@ -57,5 +65,6 @@ int relu(
 #include "tpp/linear.cpp"
 #include "tpp/convolution.cpp"
 #include "tpp/relu.cpp"
+#include "tpp/maxpool.cpp"
 
 #endif
