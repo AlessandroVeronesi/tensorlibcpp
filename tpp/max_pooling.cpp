@@ -1,5 +1,5 @@
-#ifndef _MAX_POOLING_TPP_
-#define _MAX_POOLING_TPP_
+#ifndef _MAX_POOL_TPP_
+#define _MAX_POOL_TPP_
 
 #include <vector>
 #include <iostream>
