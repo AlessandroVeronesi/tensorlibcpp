@@ -34,9 +34,9 @@ int max_pool(
   Omap.clear();
 
   for(unsigned batch_idx=0; batch_idx < BatchSize; batch_idx++) {
-    std::vector<std::vector<std::vector<nvOutType> > > cube;
+    std::vector<std::vector<std::vector<T> > > cube;
     for(unsigned c=0; c<C; c++) {
-      std::vector<std::vector<nvOutType> > surface(H_, std::vector<nvOutType>(W_, 0));
+      std::vector<std::vector<T> > surface(H_, std::vector<T>(W_, 0));
       for(unsigned h=0; h<H_; h++)
         for(unsigned w=0; w<W_; w++)
           for(unsigned i=0; i<KernelSize; i++)
