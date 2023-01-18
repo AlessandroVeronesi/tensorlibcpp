@@ -57,3 +57,5 @@ int max_pool(
 
   return 0;
 }
+
+#endif
