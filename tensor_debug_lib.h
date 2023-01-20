@@ -64,6 +64,7 @@ int max_pool(
 
 #include "tpp/linear.cpp"
 #include "tpp/convolution.cpp"
+#include "tpp/bias_add.cpp"
 #include "tpp/relu.cpp"
 #include "tpp/max_pool.cpp"
 
