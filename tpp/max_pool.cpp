@@ -1,13 +1,8 @@
 #ifndef _MAX_POOL_TPP_
 #define _MAX_POOL_TPP_
 
-#include <vector>
-#include <iostream>
-
-#include "tensor_debug_lib.h"
-
 template <typename T>
-int max_pool(
+int tensor_lib::debug::max_pool(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
