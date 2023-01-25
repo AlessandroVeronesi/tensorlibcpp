@@ -68,7 +68,7 @@ int tensor_lib::debug::ew_add(
 
   //* ===== BODY ===== *//
   Omap.clear();
-  Omap.resize(BatchSize, std::vector<std::vector<std::vector<T> > >(C, std::vector<std::Vector<T> >(H, std::vector<T>(W, 0))));
+  Omap.resize(BatchSize, std::vector<std::vector<std::vector<T> > >(C, std::vector<std::vector<T> >(H, std::vector<T>(W, 0))));
 
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++)
