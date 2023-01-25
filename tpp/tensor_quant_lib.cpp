@@ -4,7 +4,7 @@
 //// MinMaxObserver
 
 template <typename T>
-static void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::quantization::MaxMinObserver(
   std::vector<T> tensor,
   T& min,
   T& max
@@ -15,7 +15,7 @@ static void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-static void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::quantization::MaxMinObserver(
   std::vector<std::vector<T> > tensor,
   T& min,
   T& max
@@ -33,7 +33,7 @@ static void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-static void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::quantization::MaxMinObserver(
   std::vector<std::vector<std::vector<T> > > tensor,
   T& min,
   T& max
@@ -53,7 +53,7 @@ static void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-static void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::quantization::MaxMinObserver(
   std::vector<std::vector<std::vector<std::vector<T> > > > tensor,
   T& min,
   T& max
@@ -79,7 +79,7 @@ static void tensor_lib::quantization::MaxMinObserver(
 //// Calibration
 
 template <typename T>
-static void tensor_lib::quantization::AffineCalibration(
+void tensor_lib::quantization::AffineCalibration(
   const T min,
   const T max,
   const char bitwidth,
@@ -98,7 +98,7 @@ static void tensor_lib::quantization::AffineCalibration(
 }
 
 template <typename T>
-static void tensor_lib::quantization::SymmetricCalibration(
+void tensor_lib::quantization::SymmetricCalibration(
   const T min,
   const T max,
   const char bitwidth,
@@ -120,7 +120,7 @@ static void tensor_lib::quantization::SymmetricCalibration(
 //// Quantize
 
 template <typename floatT, typename intT>
-static void tensor_lib::quantization::Quantize(
+void tensor_lib::quantization::Quantize(
   std::vector<floatT> & floatTensor,
   std::vector<intT> & intTensor,
   const floatT scale,
@@ -140,7 +140,7 @@ static void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-static void tensor_lib::quantization::Quantize(
+void tensor_lib::quantization::Quantize(
   std::vector<std::vector<floatT> > & floatTensor,
   std::vector<std::vector<intT> > & intTensor,
   const floatT scale,
@@ -162,7 +162,7 @@ static void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-static void tensor_lib::quantization::Quantize(
+void tensor_lib::quantization::Quantize(
   std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   std::vector<std::vector<std::vector<intT> > > & intTensor,
   const floatT scale,
@@ -186,7 +186,7 @@ static void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-static void tensor_lib::quantization::Quantize(
+void tensor_lib::quantization::Quantize(
   std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   const floatT scale,
@@ -216,7 +216,7 @@ static void tensor_lib::quantization::Quantize(
 //// Dequantize
 
 template <typename intT, typename floatT>
-static void tensor_lib::quantization::Dequantize(
+void tensor_lib::quantization::Dequantize(
   std::vector<intT> & intTensor,
   std::vector<floatT> & floatTensor,
   const floatT scale,
@@ -236,7 +236,7 @@ static void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-static void tensor_lib::quantization::Dequantize(
+void tensor_lib::quantization::Dequantize(
   std::vector<std::vector<intT> > & intTensor,
   std::vector<std::vector<floatT> > & floatTensor,
   const floatT scale,
@@ -258,7 +258,7 @@ static void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-static void tensor_lib::quantization::Dequantize(
+void tensor_lib::quantization::Dequantize(
   std::vector<std::vector<std::vector<intT> > > & intTensor,
   std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   const floatT scale,
@@ -282,7 +282,7 @@ static void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-static void tensor_lib::quantization::Dequantize(
+void tensor_lib::quantization::Dequantize(
   std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   const floatT scale,
