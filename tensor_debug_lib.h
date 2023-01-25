@@ -43,14 +43,14 @@ int ew_add(
   std::vector<std::vector<T> >& Amap,
   std::vector<std::vector<T> >& Bmap,
   std::vector<std::vector<T> >& Omap
-  )
+  );
 
 template <typename T>
 int ew_add(
   std::vector<std::vector<std::vector<std::vector<T> > > >& Amap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Bmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
-  )
+  );
 
 // ReLU
 template <typename T>
