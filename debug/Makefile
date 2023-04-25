@@ -2,7 +2,7 @@
 ## VARS
 ############
 
-TOPDIR    := /ihp/projects/KI_PRO/veronesi/tensor_lib
+TOPDIR    := $(shell pwd)/..
 
 ############
 ## DIRS
@@ -35,7 +35,7 @@ LFLAGS := \
 
 # C Settings
 EXTRAFLAGS ?=
-CFLAGS := -g -fPIC -Wall -std=c++11
+CFLAGS := -g -fPIC -Wall -std=c++20
 
 # Target
 DEBUG_TARGET ?= debug.x
@@ -44,7 +44,7 @@ DEBUG_TARGET ?= debug.x
 ## CMDS
 ############
 
-CC := g++
+CC := /opt/gcc/12.2.0/bin/g++
 QUIET := @
 RM := rm
 CHMOD := chmod

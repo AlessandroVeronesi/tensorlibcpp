@@ -160,36 +160,10 @@ static void Dequantize(
   const floatT zero_point
   );
 
-//// Non-Symmetric Dequantize
-
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<intT> & intTensor,
-  std::vector<floatT> & floatTensor,
-  const floatT scale,
-  const floatT zero_point
-  );
-
-template <typename intT, typename floatT>
-static void Dequantize(
-  std::vector<std::vector<intT> > & intTensor,
-  std::vector<std::vector<floatT> > & floatTensor,
-  const floatT scale,
-  const floatT zero_point
-  );
-
-template <typename intT, typename floatT>
-static void Dequantize(
-  std::vector<std::vector<std::vector<intT> > > & intTensor,
-  std::vector<std::vector<std::vector<floatT> > > & floatTensor,
-  const floatT scale,
-  const floatT zero_point
-  );
-
-template <typename intT, typename floatT>
-static void Dequantize(
-  std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
-  std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
+  std::vector<std::vector<std::vector<std::vector<std::vector<intT> > > > > & intTensor,
+  std::vector<std::vector<std::vector<std::vector<std::vector<floatT> > > > > & floatTensor,
   const floatT scale,
   const floatT zero_point
   );
