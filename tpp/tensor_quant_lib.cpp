@@ -325,7 +325,7 @@ void tensor_lib::quantization::Dequantize(
   const unsigned X = intTensor[0][0][0][0].size();
 
   floatTensor.clear();
-  floatTensor.resize(F, std::vector<std::vector<std::vector<std::vector<std::vector<floatT> > > > >(C, std::vector<std::vector<std::vector<std::vector<floatT> > > >(S, std::vector<std::vector<std::vector<floatT> > >(Y, std::vector<std::vector<floatT> >(X, 0)))));
+  floatTensor.resize(F, std::vector<std::vector<std::vector<std::vector<floatT> > > >(C, std::vector<std::vector<std::vector<floatT> > >(S, std::vector<std::vector<floatT> >(Y, std::vector<floatT>(X, 0)))));
 
   for(unsigned f=0; f<F; f++)
     for(unsigned c=0; c<C; c++)
