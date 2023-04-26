@@ -5,16 +5,16 @@ namespace tensor_lib {
 
 // Tensor Print
 template <typename T>
-inline void print(std::vector<T> tensor);
+void print(std::vector<T> tensor);
 
 template <typename T>
-inline void print(std::vector<std::vector<T> > tensor);
+void print(std::vector<std::vector<T> > tensor);
 
 template <typename T>
-inline void print(std::vector<std::vector<std::vector<T> > > tensor);
+void print(std::vector<std::vector<std::vector<T> > > tensor);
 
 template <typename T>
-inline void print(std::vector<std::vector<std::vector<std::vector<T> > > > tensor);
+void print(std::vector<std::vector<std::vector<std::vector<T> > > > tensor);
 
 }
 

@@ -39,28 +39,28 @@ public:
 //// MinMaxObserver
 
 template <typename T>
-inline static void MaxMinObserver(
+static void MaxMinObserver(
   std::vector<T> tensor,
   T& min,
   T& max
   );
 
 template <typename T>
-inline static void MaxMinObserver(
+static void MaxMinObserver(
   std::vector<std::vector<T> > tensor,
   T& min,
   T& max
   );
 
 template <typename T>
-inline static void MaxMinObserver(
+static void MaxMinObserver(
   std::vector<std::vector<std::vector<T> > > tensor,
   T& min,
   T& max
   );
 
 template <typename T>
-inline static void MaxMinObserver(
+static void MaxMinObserver(
   std::vector<std::vector<std::vector<std::vector<T> > > > tensor,
   T& min,
   T& max
