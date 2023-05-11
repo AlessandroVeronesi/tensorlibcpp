@@ -51,8 +51,8 @@ int tensor_lib::debug::convolution(
     return -1;
   }
 
-  if(Dilatation !=0) {
-    std::cerr << "INFO: Dilatation not supported in current convolution" << std::endl;
+  if((Dilatation > 1) || !Dilatation){
+    std::cerr << "INFO: Dilatation not supported, must be 1" << std::endl;
     return -1;
   }
 
