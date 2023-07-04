@@ -1,6 +1,0 @@
-
-#TENSORLIBDIR := $(GET_LOCAL_DIR)
-TENSORLIBDIR := $(shell pwd)
-
-INCDIR += \
-  -I${TENSORLIBDIR}
