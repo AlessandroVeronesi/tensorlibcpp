@@ -5,6 +5,9 @@
 namespace tensor_lib {
 
 template <typename myType>
+bool compareArray(myType* A, myType* B, const unsigned Size);
+
+template <typename myType>
 bool compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX);
 
 template <typename myType>

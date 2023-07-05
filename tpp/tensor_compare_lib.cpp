@@ -2,6 +2,16 @@
 #define _TENSOR_COMPARE_LIB_TPP_
 
 template <typename myType>
+bool tensor_lib::compareArray(myType* A, myType* B, const unsigned Size)
+{
+  for(unsigned i=0; i<Size; i++)
+    if(A[i] != B[i])
+      return false;
+
+  return true;
+}
+
+template <typename myType>
 bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX)
 {
   for(unsigned i=0; i<SizeY; i++)

@@ -17,6 +17,9 @@ constexpr unsigned minNegBitVal(unsigned bitwidth)
 
 // Randomizer
 
+// INT randArray
+template <typename myType, unsigned bitwidth>
+void randArray(myType* foo, const unsigned Size);
 
 // INT randTensor
 template <typename myType, unsigned bitwidth>
