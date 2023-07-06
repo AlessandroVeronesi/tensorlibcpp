@@ -5,12 +5,12 @@
 namespace tensor_lib {
 
 // Static bitmask generation
-constexpr unsigned maxBitVal(unsigned bitwidth)
+constexpr unsigned maxBitVal(const unsigned bitwidth)
 {
   return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((maxBitVal(bitwidth-1) << 1) | 0x1));
 }
 
-constexpr unsigned minNegBitVal(unsigned bitwidth)
+constexpr unsigned minNegBitVal(const unsigned bitwidth)
 {
   return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((minNegBitVal(bitwidth-1) << 1) | 0x0));
 }
@@ -18,8 +18,8 @@ constexpr unsigned minNegBitVal(unsigned bitwidth)
 // Randomizer
 
 // INT randArray
-template <typename myType, unsigned bitwidth>
-void randArray(myType* foo, const unsigned Size);
+//template <typename myType, unsigned bitwidth>
+//void randArray(myType* foo, const unsigned Size);
 
 // INT randTensor
 template <typename myType, unsigned bitwidth>

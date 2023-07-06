@@ -1,17 +1,13 @@
 #ifndef _TENSOR_GENERATE_LIB_TPP_
 #define _TENSOR_GENERATE_LIB_TPP_
 
-template <typename myType, unsigned bitwidth>
-void randArray(myType* foo, const unsigned Size)
-{
-  static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
-
-  for(unsigned i=0; i<Size; i++) {
-    do {
-      foo[i] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
-    } while(!foo[i]);
-  }
-}
+//template <typename myType, unsigned bitwidth>
+//void randArray(myType* foo, const unsigned Size)
+//{
+//  for(unsigned i=0; i<Size; i++) {
+//    foo[i] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
+//  }
+//}
 
 template <typename myType, unsigned bitwidth>
 void tensor_lib::randTensor(std::vector<myType> & foo)
