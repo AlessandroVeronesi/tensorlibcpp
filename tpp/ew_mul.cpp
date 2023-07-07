@@ -1,8 +1,8 @@
-#ifndef _EW_ADD_CPP_
-#define _EW_ADD_CPP_
+#ifndef _EW_MUL_CPP_
+#define _EW_MUL_CPP_
 
 template <typename T>
-int tensor_lib::debug::ew_add(
+int tensor_lib::debug::ew_mul(
   const std::vector<std::vector<T> >& Amap,
   const std::vector<std::vector<T> >& Bmap,
   std::vector<std::vector<T> >& Omap
@@ -28,15 +28,15 @@ int tensor_lib::debug::ew_add(
 
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++)
-      Omap[batch_idx][c] = Amap[batch_idx][c] + Bmap[batch_idx][c];
+      Omap[batch_idx][c] = Amap[batch_idx][c] * Bmap[batch_idx][c];
 
   return 0;
 }
 
 template <typename T>
-int tensor_lib::debug::ew_add(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Amap,
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Bmap,
+int tensor_lib::debug::ew_mul(
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Amap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Bmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   )
 {
@@ -74,7 +74,7 @@ int tensor_lib::debug::ew_add(
     for(unsigned c=0; c<C; c++)
       for(unsigned h=0; h<H; h++)
         for(unsigned w=0; w<W; w++)
-          Omap[batch_idx][c][h][w] = Amap[batch_idx][c][h][w] + Bmap[batch_idx][c][h][w];
+          Omap[batch_idx][c][h][w] = Amap[batch_idx][c][h][w] * Bmap[batch_idx][c][h][w];
 
   return 0;
 }

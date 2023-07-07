@@ -1,8 +1,8 @@
-#ifndef _MAX_POOL_TPP_
-#define _MAX_POOL_TPP_
+#ifndef _AVG_POOL_TPP_
+#define _AVG_POOL_TPP_
 
 template <typename T>
-int tensor_lib::debug::max_pool(
+int tensor_lib::debug::avg_pool(
   std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
@@ -38,10 +38,10 @@ int tensor_lib::debug::max_pool(
             for(unsigned j=0; j<KernelSize; j++) {
 
               if((i==0) && (j==0)) {
-                surface[h][w] = InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j];
+                surface[h][w] = InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j] / (KernelSize*KernelSize);
               }
               else {
-                surface[h][w] = std::max(surface[h][w], InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j]);
+                surface[h][w] += InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j] / (KernelSize*KernelSize);
               }
             }
       cube.push_back(surface);
