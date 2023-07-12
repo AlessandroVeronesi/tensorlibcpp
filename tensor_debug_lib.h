@@ -118,14 +118,14 @@ int ew_div(
 template <typename T>
 int add(
   const std::vector<std::vector<T> >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<T> >& Omap
   );
 
 template <typename T>
 int add(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 
@@ -133,14 +133,14 @@ int add(
 template <typename T>
 int sub(
   const std::vector<std::vector<T> >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<T> >& Omap
   );
 
 template <typename T>
 int sub(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 
@@ -148,14 +148,14 @@ int sub(
 template <typename T>
 int mul(
   const std::vector<std::vector<T> >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<T> >& Omap
   );
 
 template <typename T>
 int mul(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 
@@ -163,14 +163,14 @@ int mul(
 template <typename T>
 int div(
   const std::vector<std::vector<T> >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<T> >& Omap
   );
 
 template <typename T>
 int div(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Imap,
-  const T scalar
+  const T scalar,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 
