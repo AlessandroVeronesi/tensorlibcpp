@@ -3,8 +3,8 @@
 
 template <typename T>
 int tensor_lib::debug::bias_add(
-  std::vector<std::vector<T> > & InFvec,
-  std::vector<T> & Bias,
+  const std::vector<std::vector<T> > & InFvec,
+  const std::vector<T> & Bias,
   std::vector<std::vector<T> > & Ovec
   )
 {
@@ -39,8 +39,8 @@ int tensor_lib::debug::bias_add(
 
 template <typename T>
 int tensor_lib::debug::bias_add(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  std::vector<T> & Bias,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<T> & Bias,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   )
 {

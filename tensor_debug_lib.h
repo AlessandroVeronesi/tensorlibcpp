@@ -25,15 +25,15 @@ int convolution(
 // Bias Addition
 template <typename T>
 int bias_add(
-  std::vector<std::vector<T> >& InFvec,
-  std::vector<T>& Bias,
+  const std::vector<std::vector<T> >& InFvec,
+  const std::vector<T>& Bias,
   std::vector<std::vector<T> >& Ovec
   );
 
 template <typename T>
 int bias_add(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  std::vector<T> & Bias,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<T> & Bias,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 

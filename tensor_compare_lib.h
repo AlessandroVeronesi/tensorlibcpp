@@ -22,6 +22,25 @@ bool compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vec
 template <typename myType>
 bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B);
 
+// W. Threshold
+template <typename myType>
+bool compareArray(myType* A, myType* B, const unsigned Size, const myType t);
+
+template <typename myType>
+bool compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX, const myType t);
+
+template <typename myType>
+bool compareTensors(std::vector<myType> & A, std::vector<myType> & B, const myType t);
+
+template <typename myType>
+bool compareTensors(std::vector<std::vector<myType> > & A, std::vector<std::vector<myType> > & B, const myType t);
+
+template <typename myType>
+bool compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vector<std::vector<std::vector<myType> > >& B, const myType t);
+
+template <typename myType>
+bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B, const myType t);
+
 // End Namespace
 }
 
