@@ -3,8 +3,8 @@
 
 template <typename T>
 int tensor_lib::debug::convolution(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned Stride, const unsigned Padding, const unsigned Dilatation
   )

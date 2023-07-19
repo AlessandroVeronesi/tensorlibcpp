@@ -1,8 +1,8 @@
 #ifndef _TENSOR_COMPARE_LIB_TPP_
 #define _TENSOR_COMPARE_LIB_TPP_
 
-template <typename myType>
-bool tensor_lib::compareArray(myType* A, myType* B, const unsigned Size)
+template <typename T>
+bool tensor_lib::compareArray(const T* A, const T* B, const unsigned Size)
 {
   for(unsigned i=0; i<Size; i++)
     if(A[i] != B[i])
@@ -11,8 +11,8 @@ bool tensor_lib::compareArray(myType* A, myType* B, const unsigned Size)
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX)
+template <typename T>
+bool tensor_lib::compare2Darray(const T** A, const T** B, const unsigned SizeY, const unsigned SizeX)
 {
   for(unsigned i=0; i<SizeY; i++)
     for(unsigned j=0; j<SizeX; j++)
@@ -22,8 +22,8 @@ bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, co
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<myType> & A, std::vector<myType> & B)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<T> & A, const std::vector<T> & B)
 {
   unsigned C = A.size();
 
@@ -36,8 +36,8 @@ bool tensor_lib::compareTensors(std::vector<myType> & A, std::vector<myType> & B
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<myType> >& A, std::vector<std::vector<myType> >& B)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<T> >& A,const std::vector<std::vector<T> >& B)
 {
   unsigned H = A.size();
   unsigned W = A[0].size();
@@ -53,8 +53,8 @@ bool tensor_lib::compareTensors(std::vector<std::vector<myType> >& A, std::vecto
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vector<std::vector<std::vector<myType> > >& B)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<T> > >& A,const std::vector<std::vector<std::vector<T> > >& B)
 {
   unsigned C = A.size();
   unsigned H = A[0].size();
@@ -73,8 +73,8 @@ bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<myType> > >&
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<std::vector<T> > > >& A,const std::vector<std::vector<std::vector<std::vector<T> > > >& B)
 {
   unsigned K = A.size();
   unsigned C = A[0].size();
@@ -97,8 +97,8 @@ bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<std::vector<
 }
 
 /////////////////////////////////////
-template <typename myType>
-bool tensor_lib::compareArray(myType* A, myType* B, const unsigned Size, const myType t)
+template <typename T>
+bool tensor_lib::compareArray(const T* A, const T* B, const unsigned Size, const T t)
 {
   for(unsigned i=0; i<Size; i++)
     if(std::abs(A[i] - B[i]) > t)
@@ -107,8 +107,8 @@ bool tensor_lib::compareArray(myType* A, myType* B, const unsigned Size, const m
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX, const myType t)
+template <typename T>
+bool tensor_lib::compare2Darray(const T** A, const T** B, const unsigned SizeY, const unsigned SizeX, const T t)
 {
   for(unsigned i=0; i<SizeY; i++)
     for(unsigned j=0; j<SizeX; j++)
@@ -118,8 +118,8 @@ bool tensor_lib::compare2Darray(myType** A, myType** B, const unsigned SizeY, co
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<myType> & A, std::vector<myType> & B, const myType t)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<T> & A,const std::vector<T> & B,const T t)
 {
   unsigned C = A.size();
 
@@ -132,8 +132,8 @@ bool tensor_lib::compareTensors(std::vector<myType> & A, std::vector<myType> & B
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<myType> >& A, std::vector<std::vector<myType> >& B, const myType t)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<T> >& A,const std::vector<std::vector<T> >& B,const T t)
 {
   unsigned H = A.size();
   unsigned W = A[0].size();
@@ -149,8 +149,8 @@ bool tensor_lib::compareTensors(std::vector<std::vector<myType> >& A, std::vecto
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vector<std::vector<std::vector<myType> > >& B, const myType t)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<T> > >& A,const std::vector<std::vector<std::vector<T> > >& B,const T t)
 {
   unsigned C = A.size();
   unsigned H = A[0].size();
@@ -169,8 +169,8 @@ bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<myType> > >&
   return true;
 }
 
-template <typename myType>
-bool tensor_lib::compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B, const myType t)
+template <typename T>
+bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<std::vector<T> > > >& A,const std::vector<std::vector<std::vector<std::vector<T> > > >& B,const T t)
 {
   unsigned K = A.size();
   unsigned C = A[0].size();

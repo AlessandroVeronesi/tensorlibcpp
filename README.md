@@ -25,12 +25,6 @@ All the header files can be individually included, or jointly included by:
 	tensor_lib::randTensor<type, bitwidth>(tensor)            // Randomizes the tensor's data with Integral value of a given bitwidth
 	tensor_lib::randTensor<type>(tensor, lowBound, highBound) // Randomizes the tensor's data with Float values in the range lowBound-highBound
 
-## Tensor Manipulate
-
-	tensor_lib::flattenFC_weights<type>(tensor, matrix)  // Flattens the input 4D tensor into a 2D matrix keeping channels contiguity
-	tensor_lib::flattenFC_features<type>(tensor, vector) // Flattens the input 3D tensor into a 1D vector keeping channels contiguity
-	tensor_lib::rollFC_features<type>(vector, tensor)    // Reroll the input 1D vector into a 3D tensor
-
 ## Tensor Debug
 
 	tensor_lib::debug::linear<type>(inVec, wMat, oVec)      // Performs 2D lienar layer between 2D inputs

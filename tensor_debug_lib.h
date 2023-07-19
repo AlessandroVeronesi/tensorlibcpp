@@ -8,16 +8,16 @@ namespace debug {
 // Linear
 template <typename T>
 int linear(
-  std::vector<std::vector<T> > & InFvec,
-  std::vector<std::vector<T> > & Kmat,
+  const std::vector<std::vector<T> > & InFvec,
+  const std::vector<std::vector<T> > & Kmat,
   std::vector<std::vector<T> > & Ovec
   );
 
 // Convolution
 template <typename T>
 int convolution(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned Stride, const unsigned Padding, const unsigned Dilatation
   );
@@ -222,7 +222,7 @@ int leaky_relu(
 // MaxPool
 template <typename T>
 int max_pool(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
   );
@@ -230,7 +230,7 @@ int max_pool(
 // MinPool
 template <typename T>
 int min_pool(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
   );
@@ -238,7 +238,7 @@ int min_pool(
 // AvgPool
 template <typename T>
 int avg_pool(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
   );

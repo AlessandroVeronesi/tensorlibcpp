@@ -4,42 +4,42 @@
 // Namespace
 namespace tensor_lib {
 
-template <typename myType>
-bool compareArray(myType* A, myType* B, const unsigned Size);
+template <typename T>
+bool compareArray(const T* A, const T* B, const unsigned Size);
 
-template <typename myType>
-bool compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX);
+template <typename T>
+bool compare2Darray(const T** A, const T** B, const unsigned SizeY, const unsigned SizeX);
 
-template <typename myType>
-bool compareTensors(std::vector<myType> & A, std::vector<myType> & B);
+template <typename T>
+bool compareTensors(const std::vector<T> & A, const std::vector<T> & B);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<myType> > & A, std::vector<std::vector<myType> > & B);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<T> > & A, const std::vector<std::vector<T> > & B);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vector<std::vector<std::vector<myType> > >& B);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<std::vector<T> > >& A, const std::vector<std::vector<std::vector<T> > >& B);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<std::vector<std::vector<T> > > >& A, const std::vector<std::vector<std::vector<std::vector<T> > > >& B);
 
 // W. Threshold
-template <typename myType>
-bool compareArray(myType* A, myType* B, const unsigned Size, const myType t);
+template <typename T>
+bool compareArray(const T* A, const T* B, const unsigned Size, const T t);
 
-template <typename myType>
-bool compare2Darray(myType** A, myType** B, const unsigned SizeY, const unsigned SizeX, const myType t);
+template <typename T>
+bool compare2Darray(const T** A, T** B, const unsigned SizeY, const unsigned SizeX, const T t);
 
-template <typename myType>
-bool compareTensors(std::vector<myType> & A, std::vector<myType> & B, const myType t);
+template <typename T>
+bool compareTensors(const std::vector<T> & A, const std::vector<T> & B, const T t);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<myType> > & A, std::vector<std::vector<myType> > & B, const myType t);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<T> > & A, const std::vector<std::vector<T> > & B, const T t);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<std::vector<myType> > >& A, std::vector<std::vector<std::vector<myType> > >& B, const myType t);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<std::vector<T> > >& A, const std::vector<std::vector<std::vector<T> > >& B, const T t);
 
-template <typename myType>
-bool compareTensors(std::vector<std::vector<std::vector<std::vector<myType> > > >& A, std::vector<std::vector<std::vector<std::vector<myType> > > >& B, const myType t);
+template <typename T>
+bool compareTensors(const std::vector<std::vector<std::vector<std::vector<T> > > >& A, const std::vector<std::vector<std::vector<std::vector<T> > > >& B, const T t);
 
 // End Namespace
 }

@@ -9,27 +9,27 @@ private:
 
 //// Auxiliary Functions
 
-constexpr static unsigned myPow2(char p)
+constexpr static unsigned myPow2(const char p)
 {
   return (p%2)? ((p==1)? 2 : (2*myPow2(p/2)*myPow2(p/2))) : ((p==0)? 1 : (myPow2(p/2)*myPow2(p/2)));
 }
 
-constexpr static unsigned myLog2(unsigned p)
+constexpr static unsigned myLog2(const unsigned p)
 {
   return (p<2)? 0 : (1 + myLog2(p/2));
 }
 
-constexpr static unsigned maxBitRange(char bitwidth)
+constexpr static unsigned maxBitRange(const char bitwidth)
 {
   return myPow2(bitwidth);
 }
 
-constexpr static int maxPosBitRange(char bitwidth)
+constexpr static int maxPosBitRange(const char bitwidth)
 {
   return myPow2(bitwidth-1)-1;
 }
 
-constexpr static int maxNegBitRange(char bitwidth)
+constexpr static int maxNegBitRange(const char bitwidth)
 {
   return -myPow2(bitwidth-1);
 }
@@ -40,28 +40,28 @@ public:
 
 template <typename T>
 static void MaxMinObserver(
-  std::vector<T> tensor,
+  const std::vector<T> & tensor,
   T& min,
   T& max
   );
 
 template <typename T>
 static void MaxMinObserver(
-  std::vector<std::vector<T> > tensor,
+  const std::vector<std::vector<T> > & tensor,
   T& min,
   T& max
   );
 
 template <typename T>
 static void MaxMinObserver(
-  std::vector<std::vector<std::vector<T> > > tensor,
+  const std::vector<std::vector<std::vector<T> > > & tensor,
   T& min,
   T& max
   );
 
 template <typename T>
 static void MaxMinObserver(
-  std::vector<std::vector<std::vector<std::vector<T> > > > tensor,
+  const std::vector<std::vector<std::vector<std::vector<T> > > > & tensor,
   T& min,
   T& max
   );
@@ -94,7 +94,7 @@ static void SymmetricCalibration(
 
 template <typename floatT, typename intT>
 static void Quantize(
-  std::vector<floatT> & floatTensor,
+  const std::vector<floatT> & floatTensor,
   std::vector<intT> & intTensor,
   const floatT scale,
   const floatT zero_point
@@ -102,7 +102,7 @@ static void Quantize(
 
 template <typename floatT, typename intT>
 static void Quantize(
-  std::vector<std::vector<floatT> > & floatTensor,
+  const std::vector<std::vector<floatT> > & floatTensor,
   std::vector<std::vector<intT> > & intTensor,
   const floatT scale,
   const floatT zero_point
@@ -110,7 +110,7 @@ static void Quantize(
 
 template <typename floatT, typename intT>
 static void Quantize(
-  std::vector<std::vector<std::vector<floatT> > > & floatTensor,
+  const std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   std::vector<std::vector<std::vector<intT> > > & intTensor,
   const floatT scale,
   const floatT zero_point
@@ -118,7 +118,7 @@ static void Quantize(
 
 template <typename floatT, typename intT>
 static void Quantize(
-  std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
+  const std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   const floatT scale,
   const floatT zero_point
@@ -130,7 +130,7 @@ static void Quantize(
 
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<intT> & intTensor,
+  const std::vector<intT> & intTensor,
   std::vector<floatT> & floatTensor,
   const floatT scale,
   const floatT zero_point
@@ -138,7 +138,7 @@ static void Dequantize(
 
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<std::vector<intT> > & intTensor,
+  const std::vector<std::vector<intT> > & intTensor,
   std::vector<std::vector<floatT> > & floatTensor,
   const floatT scale,
   const floatT zero_point
@@ -146,7 +146,7 @@ static void Dequantize(
 
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<std::vector<std::vector<intT> > > & intTensor,
+  const std::vector<std::vector<std::vector<intT> > > & intTensor,
   std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   const floatT scale,
   const floatT zero_point
@@ -154,7 +154,7 @@ static void Dequantize(
 
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
+  const std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   const floatT scale,
   const floatT zero_point
@@ -162,7 +162,7 @@ static void Dequantize(
 
 template <typename intT, typename floatT>
 static void Dequantize(
-  std::vector<std::vector<std::vector<std::vector<std::vector<intT> > > > > & intTensor,
+  const std::vector<std::vector<std::vector<std::vector<std::vector<intT> > > > > & intTensor,
   std::vector<std::vector<std::vector<std::vector<std::vector<floatT> > > > > & floatTensor,
   const floatT scale,
   const floatT zero_point

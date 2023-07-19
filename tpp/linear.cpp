@@ -3,8 +3,8 @@
 
 template <typename T>
 int tensor_lib::debug::linear(
-  std::vector<std::vector<T> > & InFvec,
-  std::vector<std::vector<T> > & Kmat,
+  const std::vector<std::vector<T> > & InFvec,
+  const std::vector<std::vector<T> > & Kmat,
   std::vector<std::vector<T> > & Ovec
   )
 {

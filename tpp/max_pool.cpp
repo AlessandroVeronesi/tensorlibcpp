@@ -3,7 +3,7 @@
 
 template <typename T>
 int tensor_lib::debug::max_pool(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
   const unsigned KernelSize
   )
