@@ -24,6 +24,7 @@ SRCS := \
 
 INCDIRS := \
   -I${TOPDIR} \
+  -I${TOPDIR}/.. \
   -I${DEBUGDIR} \
 
 ############
