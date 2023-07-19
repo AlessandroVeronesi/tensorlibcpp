@@ -4,8 +4,8 @@
 template <typename T>
 int tensor_lib::debug::leaky_relu(
   const std::vector<std::vector<T> > & InFvec,
-  const T scaleNeg,
   const T scalePos,
+  const T scaleNeg,
   std::vector<std::vector<T> > & Ovec
   )
 {
@@ -25,7 +25,7 @@ int tensor_lib::debug::leaky_relu(
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++) 
       if(InFvec[batch_idx][c] > 0)
-        Ovec[batch_idx][c] = std::max(scalePos*InFvec[batch_idx][c], 0) + std::min(scaleNeg*InFvec[batch_idx][c], 0);
+        Ovec[batch_idx][c] = scalePos*std::max(InFvec[batch_idx][c], (T)0) + scaleNeg*std::min(InFvec[batch_idx][c], (T)0);
 
   // Exit
   return 0;
@@ -34,8 +34,8 @@ int tensor_lib::debug::leaky_relu(
 template <typename T>
 int tensor_lib::debug::leaky_relu(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  const T scaleNeg,
   const T scalePos,
+  const T scaleNeg,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   )
 {
@@ -59,7 +59,7 @@ int tensor_lib::debug::leaky_relu(
       for(unsigned h=0; h<H; h++) 
         for(unsigned w=0; w<W; w++) 
           if(InFmap[batch_idx][c][h][w] > 0)
-            Omap[batch_idx][c][h][w] = std::max(scalePos*InFmap[batch_idx][c][h][w], 0) + std::min(scaleNeg*InFmap[batch_idx][c][h][w], 0);
+            Omap[batch_idx][c][h][w] = scalePos*std::max(InFmap[batch_idx][c][h][w], (T)0) + scaleNeg*std::min(InFmap[batch_idx][c][h][w], (T)0);
 
   // Exit
   return 0;

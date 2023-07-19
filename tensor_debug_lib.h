@@ -177,13 +177,13 @@ int div(
 // ReLU
 template <typename T>
 int relu(
-  std::vector<std::vector<T> >& InFvec,
+  const std::vector<std::vector<T> >& InFvec,
   std::vector<std::vector<T> >& Ovec
   );
 
 template <typename T>
 int relu(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 
@@ -206,16 +206,16 @@ int prelu(
 template <typename T>
 int leaky_relu(
   const std::vector<std::vector<T> >& InFvec,
-  const T scaleNeg,
   const T scalePos,
+  const T scaleNeg,
   std::vector<std::vector<T> >& Ovec
   );
 
 template <typename T>
 int leaky_relu(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
-  const T scaleNeg,
   const T scalePos,
+  const T scaleNeg,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   );
 

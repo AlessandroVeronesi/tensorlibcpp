@@ -35,8 +35,8 @@ int tensor_lib::debug::ew_add(
 
 template <typename T>
 int tensor_lib::debug::ew_add(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Amap,
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Bmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Amap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Bmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   )
 {

@@ -23,8 +23,7 @@ int tensor_lib::debug::prelu(
   // ReLU Computation
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++) 
-      if(InFvec[batch_idx][c] > 0)
-        Ovec[batch_idx][c] = std::max(scale*InFvec[batch_idx][c], 0);
+      Ovec[batch_idx][c] = std::max(scale*InFvec[batch_idx][c], 0);
 
   // Exit
   return 0;
@@ -56,8 +55,7 @@ int tensor_lib::debug::prelu(
     for(unsigned c=0; c<C; c++) 
       for(unsigned h=0; h<H; h++) 
         for(unsigned w=0; w<W; w++) 
-          if(InFmap[batch_idx][c][h][w] > 0)
-            Omap[batch_idx][c][h][w] = std::max(scale*InFmap[batch_idx][c][h][w], 0);
+          Omap[batch_idx][c][h][w] = std::max(scale*InFmap[batch_idx][c][h][w], 0);
 
   // Exit
   return 0;

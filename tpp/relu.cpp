@@ -3,7 +3,7 @@
 
 template <typename T>
 int tensor_lib::debug::relu(
-  std::vector<std::vector<T> > & InFvec,
+  const std::vector<std::vector<T> > & InFvec,
   std::vector<std::vector<T> > & Ovec
   )
 {
@@ -22,8 +22,7 @@ int tensor_lib::debug::relu(
   // ReLU Computation
   for(unsigned batch_idx=0; batch_idx<BatchSize; batch_idx++)
     for(unsigned c=0; c<C; c++) 
-      if(InFvec[batch_idx][c] > 0)
-        Ovec[batch_idx][c] = std::max(InFvec[batch_idx][c], 0);
+      Ovec[batch_idx][c] = std::max(InFvec[batch_idx][c], (T) 0);
 
   // Exit
   return 0;
@@ -31,7 +30,7 @@ int tensor_lib::debug::relu(
 
 template <typename T>
 int tensor_lib::debug::relu(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap
   )
 {
@@ -54,8 +53,7 @@ int tensor_lib::debug::relu(
     for(unsigned c=0; c<C; c++) 
       for(unsigned h=0; h<H; h++) 
         for(unsigned w=0; w<W; w++) 
-          if(InFmap[batch_idx][c][h][w] > 0)
-            Omap[batch_idx][c][h][w] = std::max(InFmap[batch_idx][c][h][w], 0);
+          Omap[batch_idx][c][h][w] = std::max(InFmap[batch_idx][c][h][w], (T) 0);
 
   // Exit
   return 0;
