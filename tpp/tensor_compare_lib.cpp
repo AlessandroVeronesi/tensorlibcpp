@@ -101,7 +101,7 @@ template <typename T>
 bool tensor_lib::compareArray(const T* A, const T* B, const unsigned Size, const T t)
 {
   for(unsigned i=0; i<Size; i++)
-    if(std::abs(A[i] - B[i]) > t)
+    if(std::abs((A[i] - B[i]) / B[i]) > t)
       return false;
 
   return true;
@@ -112,7 +112,7 @@ bool tensor_lib::compare2Darray(const T** A, const T** B, const unsigned SizeY, 
 {
   for(unsigned i=0; i<SizeY; i++)
     for(unsigned j=0; j<SizeX; j++)
-      if(std::abs(A[i][j] - B[i][j]) > t)
+      if(std::abs((A[i][j] - B[i][j]) / B[i][j]) > t)
         return false;
 
   return true;
@@ -126,7 +126,7 @@ bool tensor_lib::compareTensors(const std::vector<T> & A,const std::vector<T> & 
   if(C != B.size()) return false;
 
   for(unsigned c=0; c<C; c++)
-    if(std::abs(A[c] - B[c]) > t)
+    if(std::abs((A[c] - B[c]) / B[c]) > t)
       return false;
 
   return true;
@@ -143,7 +143,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<T> >& A,const std:
 
   for(unsigned h=0; h<H; h++)
     for(unsigned w=0; w<W; w++)
-      if(std::abs(A[h][w] - B[h][w]) > t)
+      if(std::abs((A[h][w] - B[h][w]) / B[h][w]) > t)
         return false;
 
   return true;
@@ -163,7 +163,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<T> > >
   for(unsigned c=0; c<C; c++)
     for(unsigned h=0; h<H; h++)
       for(unsigned w=0; w<W; w++)
-        if(std::abs(A[c][h][w] - B[c][h][w]) > t)
+        if(std::abs((A[c][h][w] - B[c][h][w]) / B[c][h][w]) > t)
           return false;
 
   return true;
@@ -186,7 +186,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<std::v
     for(unsigned c=0; c<C; c++)
       for(unsigned h=0; h<H; h++)
         for(unsigned w=0; w<W; w++)
-          if(std::abs(A[k][c][h][w] - B[k][c][h][w]) > t)
+          if(std::abs((A[k][c][h][w] - B[k][c][h][w]) / B[k][c][h][w]) > t)
             return false;
 
   return true;
