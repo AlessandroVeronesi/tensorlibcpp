@@ -1,15 +1,6 @@
 #ifndef _PRELU_TPP_
 #define _PRELU_TPP_
 
-//namespace std {
-//
-//short int max(int A, short int B)
-//{
-//  (short int) max((int) A, (int) B);
-//}
-//
-//}
-
 template <typename T>
 int tensor_lib::debug::prelu(
   const std::vector<std::vector<T> > & InFvec,

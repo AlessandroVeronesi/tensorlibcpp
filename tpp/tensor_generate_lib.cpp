@@ -1,14 +1,6 @@
 #ifndef _TENSOR_GENERATE_LIB_TPP_
 #define _TENSOR_GENERATE_LIB_TPP_
 
-//template <typename myType, unsigned bitwidth>
-//void randArray(myType* foo, const unsigned Size)
-//{
-//  for(unsigned i=0; i<Size; i++) {
-//    foo[i] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
-//  }
-//}
-
 template <typename myType, unsigned bitwidth>
 void tensor_lib::randTensor(std::vector<myType> & foo)
 {
@@ -18,7 +10,6 @@ void tensor_lib::randTensor(std::vector<myType> & foo)
 
   for(unsigned c=0; c<C; c++)
     do {
-//      foo[c] = rand() % 0xFFFF - 0x8000;
       foo[c] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
     } while(!foo[c]);
 }
@@ -34,7 +25,6 @@ void tensor_lib::randTensor(std::vector<std::vector<myType> > & foo)
   for(unsigned h=0; h<H; h++)
     for(unsigned w=0; w<W; w++) {
       do {
-//        foo[h][w] = rand() % 0xFFFF - 0x8000;
         foo[h][w] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
       } while(!foo[h][w]);
     }
@@ -53,7 +43,6 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<myType> > >& foo
     for(unsigned h=0; h<H; h++)
       for(unsigned w=0; w<W; w++) {
         do {
-//          foo[c][h][w] = rand() % 0xFFFF - 0x8000;
           foo[c][h][w] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
         } while(!foo[c][h][w]);
       }
@@ -74,7 +63,6 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<std::vector<myTy
       for(unsigned h=0; h<H; h++)
         for(unsigned w=0; w<W; w++) {
           do {
-//            foo[k][c][h][w] = rand() % 0xFFFF - 0x8000;
             foo[k][c][h][w] = rand() % maxBitVal(bitwidth) - minNegBitVal(bitwidth);
           } while(!foo[k][c][h][w]);
         }
