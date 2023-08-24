@@ -224,7 +224,8 @@ template <typename T>
 int max_pool(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned KernelSize
+  const unsigned KernelSizeW, const KernelStrideW,
+  const unsigned KernelSizeH, const KernelStrideH
   );
 
 // MinPool
@@ -232,7 +233,8 @@ template <typename T>
 int min_pool(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned KernelSize
+  const unsigned KernelSizeW, const KernelStrideW,
+  const unsigned KernelSizeH, const KernelStrideH
   );
 
 // AvgPool
@@ -240,7 +242,8 @@ template <typename T>
 int avg_pool(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned KernelSize
+  const unsigned KernelSizeW, const KernelStrideW,
+  const unsigned KernelSizeH, const KernelStrideH
   );
 
 }
