@@ -5,7 +5,8 @@ template <typename T>
 int tensor_lib::debug::min_pool(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned KernelSize
+  const unsigned KernelSizeW, const unsigned KernelStrideW,
+  const unsigned KernelSizeH, const unsigned KernelStrideH
   )
 {
   unsigned BatchSize = InFmap.size();
@@ -14,18 +15,20 @@ int tensor_lib::debug::min_pool(
   unsigned W = InFmap[0][0][0].size();
 
   //* ===== PARAMETERS CHECK ===== *//
-  if(H != W) {
-    std::cerr << "\033[1;31mERROR: H != W shapes are not supported\033[0m" << std::endl;
+  if(H % KernelSizeH) {
+    std::cerr << "\033[1;31mERROR: Size H mod KernelSize H must be 0\033[0m" << std::endl;
     return -1;
   }
-  if(H % KernelSize) {
-    std::cerr << "\033[1;31mERROR: Size mod KernelSize must be 0\033[0m" << std::endl;
+
+  if(W % KernelSizeW) {
+    std::cerr << "\033[1;31mERROR: Size W mod KernelSize W must be 0\033[0m" << std::endl;
     return -1;
   }
 
   //* ===== BODY ===== *//
-  unsigned H_ = H / KernelSize;
-  unsigned W_ = W / KernelSize;
+  unsigned H_ = std::floot((H - KernelSizeH) / KernelStrideH) +1;
+  unsigned W_ = std::floot((W - KernelSizeW) / KernelStrideW) +1;
+
   Omap.clear();
 
   for(unsigned batch_idx=0; batch_idx < BatchSize; batch_idx++) {
@@ -34,14 +37,14 @@ int tensor_lib::debug::min_pool(
       std::vector<std::vector<T> > surface(H_, std::vector<T>(W_, 0));
       for(unsigned h=0; h<H_; h++)
         for(unsigned w=0; w<W_; w++)
-          for(unsigned i=0; i<KernelSize; i++)
-            for(unsigned j=0; j<KernelSize; j++) {
+          for(unsigned i=0; i<KernelSizeH; i++)
+            for(unsigned j=0; j<KernelSizeW; j++) {
 
               if((i==0) && (j==0)) {
-                surface[h][w] = InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j];
+                surface[h][w] = InFmap[batch_idx][c][h*KernelStrideH + i][w*KernelStrideW + j];
               }
               else {
-                surface[h][w] = std::min(surface[h][w], InFmap[batch_idx][c][h*KernelSize + i][w*KernelSize + j]);
+                surface[h][w] = std::min(surface[h][w], InFmap[batch_idx][c][h*KernelStrideH + i][w*KernelStrideW + j]);
               }
             }
       cube.push_back(surface);

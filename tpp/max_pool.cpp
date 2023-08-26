@@ -15,10 +15,6 @@ int tensor_lib::debug::max_pool(
   unsigned W = InFmap[0][0][0].size();
 
   //* ===== PARAMETERS CHECK ===== *//
-  if(H != W) {
-    std::cerr << "\033[1;31mERROR: H != W shapes are not supported\033[0m" << std::endl;
-    return -1;
-  }
   if(H % KernelSizeH) {
     std::cerr << "\033[1;31mERROR: Size H mod KernelSize H must be 0\033[0m" << std::endl;
     return -1;
@@ -30,8 +26,8 @@ int tensor_lib::debug::max_pool(
   }
 
   //* ===== BODY ===== *//
-  unsigned H_ = H / KernelSizeH;
-  unsigned W_ = W / KernelSizeW;
+  unsigned H_ = std::floot((H - KernelSizeH) / KernelStrideH) +1;
+  unsigned W_ = std::floot((W - KernelSizeW) / KernelStrideW) +1;
 
   Omap.clear();
 
