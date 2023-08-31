@@ -40,7 +40,7 @@ int tensor_lib::debug::max_pool(
       std::vector<std::vector<T> > surface(H_, std::vector<T>(W_, 0));
       for(unsigned h=0; h<H_; h++)
         for(unsigned w=0; w<W_; w++)
-          for(unsigned i=0; i<KernelSizeH; i++)
+          for(unsigned i=0; i<KernelSize; i++)
             for(unsigned j=0; j<KernelSize; j++) {
 
               if((i==0) && (j==0)) {
