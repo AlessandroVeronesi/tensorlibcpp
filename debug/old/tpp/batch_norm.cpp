@@ -1,5 +1,5 @@
-#ifndef _BATCH_NORM_TPP_
-#define _BATCH_NORM_TPP_
+#ifndef _BATCH_NORM_TPP_DEBUG_
+#define _BATCH_NORM_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::batch_norm(

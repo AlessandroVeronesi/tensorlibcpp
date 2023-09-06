@@ -1,10 +1,10 @@
-#ifndef _TENSOR_QUANT_CALIBRATION_LIB_TPP_
-#define _TENSOR_QUANT_CALIBRATION_LIB_TPP_
+#ifndef _TENSOR_QUANT_CALIBRATION_LIB_TPP_DEBUG_
+#define _TENSOR_QUANT_CALIBRATION_LIB_TPP_DEBUG_
 
 //// Calibration
 
 template <typename T>
-void tensor_lib::quantization::AffineCalibration(
+void tensor_lib::debug::quantization::AffineCalibration(
   const T min,
   const T max,
   const char bitwidth,
@@ -23,7 +23,7 @@ void tensor_lib::quantization::AffineCalibration(
 }
 
 template <typename T>
-void tensor_lib::quantization::SymmetricCalibration(
+void tensor_lib::debug::quantization::SymmetricCalibration(
   const T min,
   const T max,
   const char bitwidth,

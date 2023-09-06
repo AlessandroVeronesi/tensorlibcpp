@@ -1,7 +1,9 @@
-#ifndef _TENSOR_QUANT_CALIBRATION_LIB_H_
-#define _TENSOR_QUANT_CALIBRATION_LIB_H_
+#ifndef _TENSOR_QUANT_CALIBRATION_LIB_H_DEBUG_
+#define _TENSOR_QUANT_CALIBRATION_LIB_H_DEBUG_
 
 namespace tensor_lib {
+
+namespace debug {
 
 namespace quantization {
 
@@ -23,6 +25,8 @@ void SymmetricCalibration(
   T& scale,
   T& zero_point
   );
+
+}
 
 }
 

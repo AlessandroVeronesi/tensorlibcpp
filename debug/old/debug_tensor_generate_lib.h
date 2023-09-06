@@ -1,8 +1,10 @@
-#ifndef _TENSOR_GENERATE_LIB_H_
-#define _TENSOR_GENERATE_LIB_H_
+#ifndef _TENSOR_GENERATE_LIB_H_DEBUG_
+#define _TENSOR_GENERATE_LIB_H_DEBUG_
 
 // Namespace
 namespace tensor_lib {
+
+namespace debug {
 
 // Static bitmask generation
 constexpr unsigned maxBitVal(const unsigned bitwidth)
@@ -54,6 +56,8 @@ void randTensor(
   std::vector<std::vector<std::vector<std::vector<myType> > > >& foo,
   const myType low_bound, const myType high_bound
   );
+
+}
 
 }
 

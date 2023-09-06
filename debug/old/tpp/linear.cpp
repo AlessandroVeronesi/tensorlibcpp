@@ -1,5 +1,5 @@
-#ifndef _LINEAR_TPP_
-#define _LINEAR_TPP_
+#ifndef _LINEAR_TPP_DEBUG_
+#define _LINEAR_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::linear(

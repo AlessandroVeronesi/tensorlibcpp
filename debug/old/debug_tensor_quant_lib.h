@@ -1,5 +1,5 @@
-#ifndef _TENSOR_QUANT_LIB_H_
-#define _TENSOR_QUANT_LIB_H_
+#ifndef _TENSOR_QUANT_LIB_H_DEBUG_
+#define _TENSOR_QUANT_LIB_H_DEBUG_
 
 #include "quant/iutils_lib.h"
 #include "quant/tensor_observer_lib.h"
@@ -8,3 +8,5 @@
 #include "quant/tensor_dequantize_lib.h"
 
 #endif
+_
+_

@@ -1,7 +1,9 @@
-#ifndef _TENSOR_QUANT_IUTILS_LIB_H_
-#define _TENSOR_QUANT_IUTILS_LIB_H_
+#ifndef _TENSOR_QUANT_IUTILS_LIB_H_DEBUG_
+#define _TENSOR_QUANT_IUTILS_LIB_H_DEBUG_
 
 namespace tensor_lib {
+
+namespace debug {
 
 namespace quantization {
 
@@ -30,6 +32,8 @@ constexpr int maxPosBitRange(const char bitwidth)
 constexpr int maxNegBitRange(const char bitwidth)
 {
   return -myPow2(bitwidth-1);
+}
+
 }
 
 }

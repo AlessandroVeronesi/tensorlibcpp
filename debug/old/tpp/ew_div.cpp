@@ -1,5 +1,5 @@
-#ifndef _EW_DIV_CPP_
-#define _EW_DIV_CPP_
+#ifndef _EW_DIV_TPP_DEBUG_
+#define _EW_DIV_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::ew_div(

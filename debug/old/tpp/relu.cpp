@@ -1,5 +1,5 @@
-#ifndef _RELU_TPP_
-#define _RELU_TPP_
+#ifndef _RELU_TPP_DEBUG_
+#define _RELU_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::relu(

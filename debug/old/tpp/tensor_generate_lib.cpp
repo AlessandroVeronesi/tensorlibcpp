@@ -1,8 +1,8 @@
-#ifndef _TENSOR_GENERATE_LIB_TPP_
-#define _TENSOR_GENERATE_LIB_TPP_
+#ifndef _TENSOR_GENERATE_LIB_TPP_DEBUG_
+#define _TENSOR_GENERATE_LIB_TPP_DEBUG_
 
 template <typename myType, unsigned bitwidth>
-void tensor_lib::randTensor(std::vector<myType> & foo)
+void tensor_lib::debug::randTensor(std::vector<myType> & foo)
 {
   static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
 
@@ -15,7 +15,7 @@ void tensor_lib::randTensor(std::vector<myType> & foo)
 }
 
 template <typename myType, unsigned bitwidth>
-void tensor_lib::randTensor(std::vector<std::vector<myType> > & foo)
+void tensor_lib::debug::randTensor(std::vector<std::vector<myType> > & foo)
 {
   static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
 
@@ -31,7 +31,7 @@ void tensor_lib::randTensor(std::vector<std::vector<myType> > & foo)
 }
 
 template <typename myType, unsigned bitwidth>
-void tensor_lib::randTensor(std::vector<std::vector<std::vector<myType> > >& foo)
+void tensor_lib::debug::randTensor(std::vector<std::vector<std::vector<myType> > >& foo)
 {
   static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
 
@@ -49,7 +49,7 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<myType> > >& foo
 }
 
 template <typename myType, unsigned bitwidth>
-void tensor_lib::randTensor(std::vector<std::vector<std::vector<std::vector<myType> > > >& foo)
+void tensor_lib::debug::randTensor(std::vector<std::vector<std::vector<std::vector<myType> > > >& foo)
 {
   static_assert(std::is_integral<myType>(), "randTensor: T must be integral to accept bitwidth");
 
@@ -69,7 +69,7 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<std::vector<myTy
 }
 
 template <typename myType>
-void tensor_lib::randTensor(
+void tensor_lib::debug::randTensor(
   std::vector<myType> & foo,
   const myType low_bound, const myType high_bound
   )
@@ -85,7 +85,7 @@ void tensor_lib::randTensor(
 }
 
 template <typename myType>
-void tensor_lib::randTensor(
+void tensor_lib::debug::randTensor(
   std::vector<std::vector<myType> > & foo,
   const myType low_bound, const myType high_bound
   )
@@ -104,7 +104,7 @@ void tensor_lib::randTensor(
 }
 
 template <typename myType>
-void tensor_lib::randTensor(
+void tensor_lib::debug::randTensor(
   std::vector<std::vector<std::vector<myType> > >& foo,
   const myType low_bound, const myType high_bound
   )
@@ -125,7 +125,7 @@ void tensor_lib::randTensor(
 }
 
 template <typename myType>
-void tensor_lib::randTensor(
+void tensor_lib::debug::randTensor(
   std::vector<std::vector<std::vector<std::vector<myType> > > >& foo,
   const myType low_bound, const myType high_bound
   )

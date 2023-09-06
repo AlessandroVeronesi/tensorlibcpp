@@ -1,10 +1,10 @@
-#ifndef _TENSOR_QUANTIZE_LIB_TPP_
-#define _TENSOR_QUANTIZE_LIB_TPP_
+#ifndef _TENSOR_QUANTIZE_LIB_TPP_DEBUG_
+#define _TENSOR_QUANTIZE_LIB_TPP_DEBUG_
 
 //// Quantize
 
 template <typename floatT, typename intT>
-void tensor_lib::quantization::Quantize(
+void tensor_lib::debug::quantization::Quantize(
   const std::vector<floatT> & floatTensor,
   std::vector<intT> & intTensor,
   const floatT scale,
@@ -24,7 +24,7 @@ void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-void tensor_lib::quantization::Quantize(
+void tensor_lib::debug::quantization::Quantize(
   const std::vector<std::vector<floatT> > & floatTensor,
   std::vector<std::vector<intT> > & intTensor,
   const floatT scale,
@@ -46,7 +46,7 @@ void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-void tensor_lib::quantization::Quantize(
+void tensor_lib::debug::quantization::Quantize(
   const std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   std::vector<std::vector<std::vector<intT> > > & intTensor,
   const floatT scale,
@@ -70,7 +70,7 @@ void tensor_lib::quantization::Quantize(
 }
 
 template <typename floatT, typename intT>
-void tensor_lib::quantization::Quantize(
+void tensor_lib::debug::quantization::Quantize(
   const std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   const floatT scale,

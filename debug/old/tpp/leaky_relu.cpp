@@ -1,5 +1,5 @@
-#ifndef _LEAKY_RELU_TPP_
-#define _LEAKY_RELU_TPP_
+#ifndef _LEAKY_RELU_TPP_DEBUG_
+#define _LEAKY_RELU_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::leaky_relu(

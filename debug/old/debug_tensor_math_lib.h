@@ -1,5 +1,5 @@
-#ifndef _TENSOR_DEBUG_H_
-#define _TENSOR_DEBUG_H_
+#ifndef _TENSOR_DEBUG_H_DEBUG_
+#define _TENSOR_DEBUG_H_DEBUG_
 
 namespace tensor_lib {
 

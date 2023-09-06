@@ -1,10 +1,10 @@
-#ifndef _TENSOR_QUANT_OBSERVER_LIB_TPP_
-#define _TENSOR_QUANT_OBSERVER_LIB_TPP_
+#ifndef _TENSOR_QUANT_OBSERVER_LIB_TPP_DEBUG_
+#define _TENSOR_QUANT_OBSERVER_LIB_TPP_DEBUG_
 
 //// MinMaxObserver
 
 template <typename T>
-void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::debug::quantization::MaxMinObserver(
   const std::vector<T> & tensor,
   T& min,
   T& max
@@ -15,7 +15,7 @@ void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::debug::quantization::MaxMinObserver(
   const std::vector<std::vector<T> > & tensor,
   T& min,
   T& max
@@ -33,7 +33,7 @@ void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::debug::quantization::MaxMinObserver(
   const std::vector<std::vector<std::vector<T> > > & tensor,
   T& min,
   T& max
@@ -53,7 +53,7 @@ void tensor_lib::quantization::MaxMinObserver(
 }
 
 template <typename T>
-void tensor_lib::quantization::MaxMinObserver(
+void tensor_lib::debug::quantization::MaxMinObserver(
   const std::vector<std::vector<std::vector<std::vector<T> > > > & tensor,
   T& min,
   T& max

@@ -1,5 +1,5 @@
-#ifndef _MUL_CPP_
-#define _MUL_CPP_
+#ifndef _MUL_TPP_DEBUG_
+#define _MUL_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::mul(

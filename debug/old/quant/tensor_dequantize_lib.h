@@ -1,7 +1,9 @@
-#ifndef _TENSOR_DEQUANTIZE_LIB_H_
-#define _TENSOR_DEQUANTIZE_LIB_H_
+#ifndef _TENSOR_DEQUANTIZE_LIB_H_DEBUG_
+#define _TENSOR_DEQUANTIZE_LIB_H_DEBUG_
 
 namespace tensor_lib {
+
+namespace debug {
 
 namespace quantization {
 
@@ -46,6 +48,8 @@ void Dequantize(
   const floatT scale,
   const floatT zero_point
   );
+
+}
 
 }
 

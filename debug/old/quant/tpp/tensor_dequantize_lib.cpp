@@ -1,10 +1,10 @@
-#ifndef _TENSOR_DEQUANTIZE_LIB_TPP_
-#define _TENSOR_DEQUANTIZE_LIB_TPP_
+#ifndef _TENSOR_DEQUANTIZE_LIB_TPP_DEBUG_
+#define _TENSOR_DEQUANTIZE_LIB_TPP_DEBUG_
 
 //// Dequantize
 
 template <typename intT, typename floatT>
-void tensor_lib::quantization::Dequantize(
+void tensor_lib::debug::quantization::Dequantize(
   const std::vector<intT> & intTensor,
   std::vector<floatT> & floatTensor,
   const floatT scale,
@@ -24,7 +24,7 @@ void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-void tensor_lib::quantization::Dequantize(
+void tensor_lib::debug::quantization::Dequantize(
   const std::vector<std::vector<intT> > & intTensor,
   std::vector<std::vector<floatT> > & floatTensor,
   const floatT scale,
@@ -46,7 +46,7 @@ void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-void tensor_lib::quantization::Dequantize(
+void tensor_lib::debug::quantization::Dequantize(
   const std::vector<std::vector<std::vector<intT> > > & intTensor,
   std::vector<std::vector<std::vector<floatT> > > & floatTensor,
   const floatT scale,
@@ -70,7 +70,7 @@ void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-void tensor_lib::quantization::Dequantize(
+void tensor_lib::debug::quantization::Dequantize(
   const std::vector<std::vector<std::vector<std::vector<intT> > > > & intTensor,
   std::vector<std::vector<std::vector<std::vector<floatT> > > > & floatTensor,
   const floatT scale,
@@ -96,7 +96,7 @@ void tensor_lib::quantization::Dequantize(
 }
 
 template <typename intT, typename floatT>
-void tensor_lib::quantization::Dequantize(
+void tensor_lib::debug::quantization::Dequantize(
   const std::vector<std::vector<std::vector<std::vector<std::vector<intT> > > > > & intTensor,
   std::vector<std::vector<std::vector<std::vector<std::vector<floatT> > > > > & floatTensor,
   const floatT scale,

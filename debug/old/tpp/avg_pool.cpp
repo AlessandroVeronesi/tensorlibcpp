@@ -1,5 +1,5 @@
-#ifndef _AVG_POOL_TPP_
-#define _AVG_POOL_TPP_
+#ifndef _AVG_POOL_TPP_DEBUG_
+#define _AVG_POOL_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::avg_pool(

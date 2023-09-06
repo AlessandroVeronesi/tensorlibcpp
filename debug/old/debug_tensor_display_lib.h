@@ -1,7 +1,9 @@
-#ifndef _TENSOR_DISPLAY_LIB_H_
-#define _TENSOR_DISPLAY_LIB_H_
+#ifndef _TENSOR_DISPLAY_LIB_H_DEBUG_
+#define _TENSOR_DISPLAY_LIB_H_DEBUG_
 
 namespace tensor_lib {
+
+namespace debug {
 
 // Tensor Print
 template <typename T>
@@ -15,6 +17,8 @@ void print(const std::vector<std::vector<std::vector<T> > > & tensor);
 
 template <typename T>
 void print(const std::vector<std::vector<std::vector<std::vector<T> > > > & tensor);
+
+}
 
 }
 

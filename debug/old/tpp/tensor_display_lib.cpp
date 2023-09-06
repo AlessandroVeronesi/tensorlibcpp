@@ -1,8 +1,8 @@
-#ifndef _TENSOR_DISPLAY_LIB_TPP_
-#define _TENSOR_DISPLAY_LIB_TPP_
+#ifndef _TENSOR_DISPLAY_LIB_TPP_DEBUG_
+#define _TENSOR_DISPLAY_LIB_TPP_DEBUG_
 
 template <typename T>
-void tensor_lib::print(const std::vector<T> & tensor)
+void tensor_lib::debug::print(const std::vector<T> & tensor)
 {
   const unsigned Stride = tensor.size();
   for(unsigned pos=0; pos<Stride; pos++) {
@@ -13,7 +13,7 @@ void tensor_lib::print(const std::vector<T> & tensor)
 }
 
 template <typename T>
-void tensor_lib::print(const std::vector<std::vector<T> > & tensor)
+void tensor_lib::debug::print(const std::vector<std::vector<T> > & tensor)
 {
   const unsigned lineStride = tensor.size();
   for(unsigned line=0; line<lineStride; line++)
@@ -21,7 +21,7 @@ void tensor_lib::print(const std::vector<std::vector<T> > & tensor)
 }
 
 template <typename T>
-void tensor_lib::print(const std::vector<std::vector<std::vector<T> > > & tensor)
+void tensor_lib::debug::print(const std::vector<std::vector<std::vector<T> > > & tensor)
 {
   const unsigned surfaceStride = tensor.size();
   std::cout << "[" << std::endl;
@@ -31,7 +31,7 @@ void tensor_lib::print(const std::vector<std::vector<std::vector<T> > > & tensor
 }
 
 template <typename T>
-void tensor_lib::print(const std::vector<std::vector<std::vector<std::vector<T> > > > & tensor)
+void tensor_lib::debug::print(const std::vector<std::vector<std::vector<std::vector<T> > > > & tensor)
 {
   const unsigned cubeStride = tensor.size();
   for(unsigned cube=0; cube<cubeStride; cube++) {

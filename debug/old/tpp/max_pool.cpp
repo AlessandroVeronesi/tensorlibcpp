@@ -1,5 +1,5 @@
-#ifndef _MAX_POOL_TPP_
-#define _MAX_POOL_TPP_
+#ifndef _MAX_POOL_TPP_DEBUG_
+#define _MAX_POOL_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::max_pool(

@@ -11,7 +11,7 @@ inline size_t tensor_lib::tensor<T>::getDataSize()
     return size;
 }
 
-inline size_t tensor_lib::tensor<T>::getDataSize(size_t* dimensions, size_t ndims)
+inline size_t tensor_lib::tensor<T>::getDataSize(const size_t* dimensions, const size_t ndims)
 {
     size_t size=1;
     for(size_t i=0; i<ndims; i++) {
@@ -20,9 +20,33 @@ inline size_t tensor_lib::tensor<T>::getDataSize(size_t* dimensions, size_t ndim
     return size;
 }
 
+// INDEXING 
+inline size_t tensor_lib::tensor<T>::getFlattenIndex(const size_t* coordinates)
+{
+    size_t idx = coordinates[this->ndim - 1];
+    for(size_t i = this->ndim - 2; i < SIZE_MAX; i--) {
+        idx = idx * dims[i] + coordinates[i];
+    }
+    return idx;
+}
+
+inline void tensor_lib::tensor<T>::getCoorinates(const size_t flattenIndex, size_t* coordinates)
+{   
+    size_t tmp = 1;
+    for(size_t i = 0; i < this->ndim - 1; i++) {
+        tmp *= this->dims[i];
+    }
+    for(size_t i = this->ndim - 1; i > 0; i--) {
+        coordinates[i] = flattenIndex / tmp;
+        flattenIndex = flattenIndex % tmp;
+        tmp = tmp / this->dims[i - 1];
+    }
+    coordinates[0] = flattenIndex;
+}
+
 // CTORS
 template<typename T>
-tensor_lib::tensor<T>::tensor(size_t* dimensions, size_t ndims)
+tensor_lib::tensor<T>::tensor(const size_t* dimensions, const size_t ndims)
 {
     delete[] this->dims;
 
@@ -41,9 +65,17 @@ template<typename T>
     delete[] ndims;
 }
 
+// GET DIMENSIONS
+inline size_t getNdim() { return this->ndims; }
+
+inline void getDims(size_t* dimensions)
+{
+    std::memcpy(dimensions, this->dims, sizeof(size_t));
+}
+
 // SETDIMS
 template<typename T>
-void tensor_lib::tensor<T>::reshape(size_t* dimensions, size_t ndims)
+void tensor_lib::tensor<T>::reshape(const size_t* dimensions, const size_t ndims)
 {
     TENSOR_ASSERT((this->getDataSize) == (getDataSize(dimensions, ndims)), "reshape: dimensions are not matching");
     
@@ -52,6 +84,36 @@ void tensor_lib::tensor<T>::reshape(size_t* dimensions, size_t ndims)
     this->ndims = ndims;
     this->dims = new size_t[ndims];
     std::memcpy(this->dims, dimensions, sizeof(size_t));
+}
+
+// REALLOC
+template<typename T>
+void tensor_lib::tensor<T>::realloc(const size_t* dimensions, const size_t ndims)
+{
+    delete[] this->data;
+    delete[] this->dims;
+
+    this->ndims = ndims;
+    this->dims = new size_t[ndims];
+    std::memcpy(this->dims, dimensions, sizeof(size_t));
+
+    size_t size=getDataSize();
+    this->data = new T[size];
+}
+
+template<typename T>
+void tensor_lib::tensor<T>::realloc(const size_t* dimensions, const size_t ndims, const T value)
+{
+    delete[] this->data;
+    delete[] this->dims;
+
+    this->ndims = ndims;
+    this->dims = new size_t[ndims];
+    std::memcpy(this->dims, dimensions, sizeof(size_t));
+
+    size_t size=getDataSize();
+    this->data = new T[size];
+    std::memset(this->data, value, size*sizeof(T));
 }
 
 // COMPARE
@@ -69,5 +131,24 @@ inline bool tensor_lib::tensor<T>::operator!= (const tensor_lib::tensor<T>& foo,
 {
     return !(foo == other);
 }
+
+// MATH ASSIGNMENT
+inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator+= (const tensor_lib::tensor<T>& other)
+{
+    for(size_t i=0; i<)
+}
+
+inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator-= (const tensor_lib::tensor<T>& other)
+{
+}
+
+inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator*= (const tensor_lib::tensor<T>& other)
+{
+}
+
+inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator/= (const tensor_lib::tensor<T>& other)
+{
+}
+
 
 #endif

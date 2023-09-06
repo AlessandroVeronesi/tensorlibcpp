@@ -1,5 +1,5 @@
-#ifndef _DIV_CPP_
-#define _DIV_CPP_
+#ifndef _DIV_TPP_DEBUG_
+#define _DIV_TPP_DEBUG_
 
 template <typename T>
 int tensor_lib::debug::div(
