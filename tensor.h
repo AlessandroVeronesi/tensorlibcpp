@@ -11,23 +11,31 @@ class tensor
     size_t* dims;
     size_t ndims;
 
+    inline size_t getSize();
+    inline size_t getDataSize(size_t* dimensions, size_t ndims);
+
  public:
     // SETDIMS
-    void setDims(size_t* dimensions, size_t ndims);
+    void reshape(size_t* dimensions, size_t ndims);
     //TODO:
     //void setDims(size_t ...Args);
+
+    // REALLOC
+    void realloc(size_t* dimensions, size_t ndims);
 
     // CTORS
     tensor(size_t* dimensions, size_t ndims);
     tensor(size_t* dimensions, size_t ndims, T value);
-    tensor(const tensor&) = default;
+    tensor(const tensor&)=default; // Shallow Copy
 
     ~tensor();
 
-    // TODO
     // ASSIGN
-    // TODO
+    //tensor& operator= (const tensor& other); // Shallow Copy
+
     // COMPARE
+    inline bool operator== (const tensor& foo, const tensor& other);
+    inline bool operator!= (const tensor& foo, const tensor& other);
 };
 
 }
