@@ -11,14 +11,15 @@ class tensor
     size_t* dims;
     size_t ndims;
 
-    inline size_t getSize();
-    inline size_t getDataSize(const size_t* dimensions, const size_t ndims);
+     size_t getDataSize();
+     size_t getDataSize(const size_t* dimensions, const size_t ndims);
 
-    inline size_t getFlattenIndex(const size_t* coordinates);
-    inline size_t* getCoorinates(const size_t flattenIndex);
+     size_t getFlattenIndex(const size_t* coordinates);
+     void getCoorinates(const size_t flattenIndex, size_t* coordinates);
 
  public:
     // CTORS
+    tensor() { };
     tensor(const size_t* dimensions, const size_t ndims);
     tensor(const size_t* dimensions, const size_t ndims, const T value);
     tensor(const tensor&)=default; // Shallow Copy
@@ -28,30 +29,38 @@ class tensor
     // ASSIGN
     //tensor& operator= (const tensor& other); // Shallow Copy
 
-    // COMPARE
-    inline bool operator== (const tensor& foo, const tensor& other);
-    inline bool operator!= (const tensor& foo, const tensor& other);
+    // DATA ACCESS
+    T& operator()(const size_t* coordinates);
 
-    // MATH OP
-
-    // MATH ASSIGNMENT
-    inline tensor& operator+=(const tensor& other);
-    inline tensor& operator-=(const tensor& other);
-    inline tensor& operator*=(const tensor& other);
-    inline tensor& operator/=(const tensor& other);
+    template<typename ...Args>
+    T& operator()(Args... args) 
+    requires(std::conjunction<std::is_convertible<size_t,Args>...>::value);
 
     // GET DIMENSIONS
-    inline size_t getNdim();
-    inline void getDims(size_t* dimensions);
+    size_t getNdim();
+    void getDims(size_t* dimensions);
 
-    // CHANGE LOGICAL SIZE
-    inline void reshape(const size_t* dimensions, const size_t ndims);
+    // SET LOGICAL DIMENSIONS
+    void reshape(const size_t* dimensions, const size_t ndims);
     // TODO:
-    //inline void reshape(size_t ...Args);
+    // void reshape(size_t ...Args);
 
     // REALLOC
-    inline void realloc(const size_t* dimensions, const size_t ndims);
-    inline void realloc(const size_t* dimensions, const size_t ndims, T value);
+     void realloc(const size_t* dimensions, const size_t ndims);
+     void realloc(const size_t* dimensions, const size_t ndims, T value);
+
+    // COMPARE
+     bool operator==(const tensor& foo, const tensor& other);
+     bool operator!=(const tensor& foo, const tensor& other);
+
+// TODO
+//    // MATH OP
+//
+//    // MATH ASSIGNMENT
+//     tensor& operator+=(const tensor& other);
+//     tensor& operator-=(const tensor& other);
+//     tensor& operator*=(const tensor& other);
+//     tensor& operator/=(const tensor& other);
 };
 
 }

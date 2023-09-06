@@ -2,7 +2,8 @@
 #define _TENSOR_LIB_TENSOR_TPP_
 
 // GET DATA SIZE
-inline size_t tensor_lib::tensor<T>::getDataSize()
+template<typename T>
+size_t tensor_lib::tensor<T>::getDataSize()
 {
     size_t size=1;
     for(size_t i=0; i<this->ndims; i++) {
@@ -11,7 +12,8 @@ inline size_t tensor_lib::tensor<T>::getDataSize()
     return size;
 }
 
-inline size_t tensor_lib::tensor<T>::getDataSize(const size_t* dimensions, const size_t ndims)
+template<typename T>
+size_t tensor_lib::tensor<T>::getDataSize(const size_t* dimensions, const size_t ndims)
 {
     size_t size=1;
     for(size_t i=0; i<ndims; i++) {
@@ -21,7 +23,8 @@ inline size_t tensor_lib::tensor<T>::getDataSize(const size_t* dimensions, const
 }
 
 // INDEXING 
-inline size_t tensor_lib::tensor<T>::getFlattenIndex(const size_t* coordinates)
+template<typename T>
+size_t tensor_lib::tensor<T>::getFlattenIndex(const size_t* coordinates)
 {
     size_t idx = coordinates[this->ndim - 1];
     for(size_t i = this->ndim - 2; i < SIZE_MAX; i--) {
@@ -30,7 +33,8 @@ inline size_t tensor_lib::tensor<T>::getFlattenIndex(const size_t* coordinates)
     return idx;
 }
 
-inline void tensor_lib::tensor<T>::getCoorinates(const size_t flattenIndex, size_t* coordinates)
+template<typename T>
+void tensor_lib::tensor<T>::getCoorinates(const size_t flattenIndex, size_t* coordinates)
 {   
     size_t tmp = 1;
     for(size_t i = 0; i < this->ndim - 1; i++) {
@@ -59,21 +63,32 @@ tensor_lib::tensor<T>::tensor(const size_t* dimensions, const size_t ndims)
 }
 
 template<typename T>
-~tensor_lib::tensor<T>::tensor()
+tensor_lib::tensor<T>::~tensor()
 {
     delete[] data;
     delete[] ndims;
 }
 
-// GET DIMENSIONS
-inline size_t getNdim() { return this->ndims; }
+// ELEMENT ACCESS
+template<typename T>
+template<typename ...Args>
+T& tensor_lib::tensor<T>::operator()(Args... args) 
+requires(std::conjunction<std::is_convertible<size_t,Args>...>::value)
+{
+    
+}
 
-inline void getDims(size_t* dimensions)
+// GET DIMENSIONS
+template<typename T>
+size_t getNdim() { return this->ndims; }
+
+template<typename T>
+void getDims(size_t* dimensions)
 {
     std::memcpy(dimensions, this->dims, sizeof(size_t));
 }
 
-// SETDIMS
+// SET LOGICAL DIMENSIONS
 template<typename T>
 void tensor_lib::tensor<T>::reshape(const size_t* dimensions, const size_t ndims)
 {
@@ -118,7 +133,7 @@ void tensor_lib::tensor<T>::realloc(const size_t* dimensions, const size_t ndims
 
 // COMPARE
 template<typename T>
-inline bool tensor_lib::tensor<T>::operator== (const tensor_lib::tensor<T>& foo, const tensor_lib::tensor<T>& other)
+bool tensor_lib::tensor<T>::operator==(const tensor_lib::tensor<T>& foo, const tensor_lib::tensor<T>& other)
 {
     if(foo.ndims != other.ndims) return false;
     if(!std::equal(foo.dims, foo.dims+foo.ndims-1, other)) return false;
@@ -127,28 +142,32 @@ inline bool tensor_lib::tensor<T>::operator== (const tensor_lib::tensor<T>& foo,
 }
 
 template<typename T>
-inline bool tensor_lib::tensor<T>::operator!= (const tensor_lib::tensor<T>& foo, const tensor_lib::tensor<T>& other)
+bool tensor_lib::tensor<T>::operator!=(const tensor_lib::tensor<T>& foo, const tensor_lib::tensor<T>& other)
 {
     return !(foo == other);
 }
 
-// MATH ASSIGNMENT
-inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator+= (const tensor_lib::tensor<T>& other)
-{
-    for(size_t i=0; i<)
-}
-
-inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator-= (const tensor_lib::tensor<T>& other)
-{
-}
-
-inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator*= (const tensor_lib::tensor<T>& other)
-{
-}
-
-inline tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator/= (const tensor_lib::tensor<T>& other)
-{
-}
+// TODO
+//// MATH ASSIGNMENT
+//template<typename T>
+//tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator+= (const tensor_lib::tensor<T>& other)
+//{
+//}
+//
+//template<typename T>
+//tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator-= (const tensor_lib::tensor<T>& other)
+//{
+//}
+//
+//template<typename T>
+//tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator*= (const tensor_lib::tensor<T>& other)
+//{
+//}
+//
+//template<typename T>
+//tensor_lib::tensor<T>& tensor_lib::tensor<T>::operator/= (const tensor_lib::tensor<T>& other)
+//{
+//}
 
 
 #endif
