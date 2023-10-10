@@ -26,8 +26,8 @@ int tensor_lib::debug::max_pool(
   }
 
   //* ===== BODY ===== *//
-  unsigned H_ = std::floot((H - KernelSizeH) / KernelStrideH) +1;
-  unsigned W_ = std::floot((W - KernelSizeW) / KernelStrideW) +1;
+  unsigned H_ = std::floor((H - KernelSizeH) / KernelStrideH) +1;
+  unsigned W_ = std::floor((W - KernelSizeW) / KernelStrideW) +1;
 
   Omap.clear();
 
