@@ -8,5 +8,5 @@
 
 void main()
 {
-    tensor_lib::tensor<int> T;
+    tensorcpp::tensor<int> T;
 }

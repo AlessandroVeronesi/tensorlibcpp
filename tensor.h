@@ -1,7 +1,7 @@
-#ifndef _TENSOR_LIB_TENSOR_H_
-#define _TENSOR_LIB_TENSOR_H_
+#ifndef __TENSORCPP_TENSOR_H__
+#define __TENSORCPP_TENSOR_H__
 
-namespace tensor_lib {
+namespace tensorcpp {
 
 template<typename T>
 class tensor
@@ -40,31 +40,25 @@ class tensor
     size_t getNdim();
     void getDims(size_t* dimensions);
 
-    // SET LOGICAL DIMENSIONS
-    void reshape(const size_t* dimensions, const size_t ndims);
-    // TODO:
-    // void reshape(size_t ...Args);
+// FIXME: To Test
+//    // SET LOGICAL DIMENSIONS
+//    void reshape(const size_t* dimensions, const size_t ndims);
+//    // TODO:
+//    // void reshape(size_t ...Args);
 
-    // REALLOC
-     void realloc(const size_t* dimensions, const size_t ndims);
-     void realloc(const size_t* dimensions, const size_t ndims, T value);
+// FIXME: To Test
+//    // REALLOC
+//     void realloc(const size_t* dimensions, const size_t ndims);
+//     void realloc(const size_t* dimensions, const size_t ndims, T value);
 
-    // COMPARE
-     bool operator==(const tensor& foo, const tensor& other);
-     bool operator!=(const tensor& foo, const tensor& other);
-
-// TODO
-//    // MATH OP
-//
-//    // MATH ASSIGNMENT
-//     tensor& operator+=(const tensor& other);
-//     tensor& operator-=(const tensor& other);
-//     tensor& operator*=(const tensor& other);
-//     tensor& operator/=(const tensor& other);
+// FIXME: To Test
+//    // COMPARE
+//     bool operator==(const tensor& lhs, const tensor& rhs);
+//     bool operator!=(const tensor& lhs, const tensor& rhs);
 };
 
 }
 
-#include "tpp/tensor.cpp"
+#include "tpp/tensor.tpp"
 
 #endif
