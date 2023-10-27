@@ -27,7 +27,7 @@ template <typename T>
 bool compareArray(const T* A, const T* B, const size_t Size, const T t);
 
 template <typename T>
-bool compare2Darray(const T** A, T** B, const size_t SizeY, const size_t SizeX, const T t);
+bool compare2Darray(const T** A, const T** B, const size_t SizeY, const size_t SizeX, const T t);
 
 template <typename T>
 bool compareTensors(const std::vector<T> & A, const std::vector<T> & B, const T t);
