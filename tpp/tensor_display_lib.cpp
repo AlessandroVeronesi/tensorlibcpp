@@ -6,8 +6,9 @@ void tensor_lib::print(const std::vector<T> & tensor)
 {
   const unsigned Stride = tensor.size();
   for(unsigned pos=0; pos<Stride; pos++) {
-    const auto value = (std::is_same<T, char>::value)? static_cast<unsigned>(tensor[pos]) : tensor[pos];
-    std::cout << " " << value << std::flush;
+    //const auto value = (std::is_same<T, char>::value)? static_cast<unsigned>(tensor[pos]) : tensor[pos];
+    //std::cout << " " << value << std::flush;
+    std::cout << " " << tensor[pos] << std::flush;
   }
   std::cout << std::endl;
 }

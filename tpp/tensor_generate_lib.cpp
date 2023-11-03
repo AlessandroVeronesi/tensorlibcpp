@@ -75,12 +75,14 @@ void tensor_lib::randTensor(
   )
 {
   //static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+  //internal::uniform_distribution<myType> distr(low_bound, high_bound);
 
   unsigned C = foo.size();
 
   for(unsigned c=0; c<C; c++)
     do {
-      foo[c] = low_bound + static_cast<myType>(rand()) / (static_cast<myType>(RAND_MAX/(high_bound-low_bound)));
+      //foo[c] = distr.rand();
+      foo[c] = internal::uniform_rand(low_bound, high_bound);
     } while(!foo[c]);
 }
 
@@ -91,6 +93,7 @@ void tensor_lib::randTensor(
   )
 {
 //  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+//  internal::uniform_distribution<myType> distr(low_bound, high_bound);
 
   unsigned H = foo.size();
   unsigned W = foo[0].size();
@@ -98,7 +101,8 @@ void tensor_lib::randTensor(
   for(unsigned h=0; h<H; h++)
     for(unsigned w=0; w<W; w++) {
       do {
-        foo[h][w] = low_bound + static_cast<myType>(rand()) / (static_cast<myType>(RAND_MAX/(high_bound-low_bound)));
+        //foo[h][w] = distr.rand();
+        foo[h][w] = internal::uniform_rand(low_bound, high_bound);
       } while(!foo[h][w]);
     }
 }
@@ -110,6 +114,8 @@ void tensor_lib::randTensor(
   )
 {
 //  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+  //internal::uniform_distribution<myType> distr(low_bound, high_bound);
+
 
   unsigned C = foo.size();
   unsigned H = foo[0].size();
@@ -119,7 +125,8 @@ void tensor_lib::randTensor(
     for(unsigned h=0; h<H; h++)
       for(unsigned w=0; w<W; w++) {
         do {
-          foo[c][h][w] = low_bound + static_cast<myType>(rand()) / (static_cast<myType>(RAND_MAX/(high_bound-low_bound)));
+          //foo[c][h][w] = distr.rand();
+          foo[c][h][w] = internal::uniform_rand(low_bound, high_bound);
         } while(!foo[c][h][w]);
       }
 }
@@ -130,7 +137,7 @@ void tensor_lib::randTensor(
   const myType low_bound, const myType high_bound
   )
 {
-//  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+  //internal::uniform_distribution<myType> distr(low_bound, high_bound);
 
   unsigned K = foo.size();
   unsigned C = foo[0].size();
@@ -142,7 +149,8 @@ void tensor_lib::randTensor(
       for(unsigned h=0; h<H; h++)
         for(unsigned w=0; w<W; w++) {
           do {
-            foo[k][c][h][w] = low_bound + static_cast<myType>(rand()) / (static_cast<myType>(RAND_MAX/(high_bound-low_bound)));
+            //foo[k][c][h][w] = distr.rand();
+            foo[k][c][h][w] = internal::uniform_rand(low_bound, high_bound);
           } while(!foo[k][c][h][w]);
         }
 }
