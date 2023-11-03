@@ -4,6 +4,12 @@
 // Namespace
 namespace tensor_lib {
 
+namespace internal {
+
+    template <typename T>
+    static inline T abs(const T& value);
+}
+
 template <typename T>
 bool compareArray(const T* A, const T* B, const size_t Size);
 

@@ -74,7 +74,7 @@ void tensor_lib::randTensor(
   const myType low_bound, const myType high_bound
   )
 {
-  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+  //static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
 
   unsigned C = foo.size();
 
@@ -90,7 +90,7 @@ void tensor_lib::randTensor(
   const myType low_bound, const myType high_bound
   )
 {
-  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+//  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
 
   unsigned H = foo.size();
   unsigned W = foo[0].size();
@@ -109,7 +109,7 @@ void tensor_lib::randTensor(
   const myType low_bound, const myType high_bound
   )
 {
-  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+//  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
 
   unsigned C = foo.size();
   unsigned H = foo[0].size();
@@ -130,7 +130,7 @@ void tensor_lib::randTensor(
   const myType low_bound, const myType high_bound
   )
 {
-  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
+//  static_assert(std::is_floating_point<myType>(), "randTensor: T integral type needs bitwidth");
 
   unsigned K = foo.size();
   unsigned C = foo[0].size();

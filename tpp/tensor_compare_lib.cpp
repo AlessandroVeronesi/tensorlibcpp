@@ -2,6 +2,12 @@
 #define _TENSOR_COMPARE_LIB_TPP_
 
 template <typename T>
+static T tensor_lib::internal::abs(const T& value)
+{
+  return (value < T(0))? (T(0) - value) : value;
+}
+
+template <typename T>
 bool tensor_lib::compareArray(const T* A, const T* B, const size_t Size)
 {
   for(size_t i=0; i<Size; i++)
@@ -101,7 +107,7 @@ template <typename T>
 bool tensor_lib::compareArray(const T* A, const T* B, const size_t Size, const T t)
 {
   for(size_t i=0; i<Size; i++)
-    if(std::abs((A[i] - B[i]) / B[i]) > t)
+    if(internal::abs((A[i] - B[i]) / B[i]) > t)
       return false;
 
   return true;
@@ -112,7 +118,7 @@ bool tensor_lib::compare2Darray(const T** A, const T** B, const size_t SizeY, co
 {
   for(size_t i=0; i<SizeY; i++)
     for(size_t j=0; j<SizeX; j++)
-      if(std::abs((A[i][j] - B[i][j]) / B[i][j]) > t)
+      if(internal::abs((A[i][j] - B[i][j]) / B[i][j]) > t)
         return false;
 
   return true;
@@ -126,7 +132,7 @@ bool tensor_lib::compareTensors(const std::vector<T> & A,const std::vector<T> & 
   if(C != B.size()) return false;
 
   for(size_t c=0; c<C; c++)
-    if(std::abs((A[c] - B[c]) / B[c]) > t)
+    if(internal::abs((A[c] - B[c]) / B[c]) > t)
       return false;
 
   return true;
@@ -143,7 +149,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<T> >& A,const std:
 
   for(size_t h=0; h<H; h++)
     for(size_t w=0; w<W; w++)
-      if(std::abs((A[h][w] - B[h][w]) / B[h][w]) > t)
+      if(internal::abs((A[h][w] - B[h][w]) / B[h][w]) > t)
         return false;
 
   return true;
@@ -163,7 +169,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<T> > >
   for(size_t c=0; c<C; c++)
     for(size_t h=0; h<H; h++)
       for(size_t w=0; w<W; w++)
-        if(std::abs((A[c][h][w] - B[c][h][w]) / B[c][h][w]) > t)
+        if(internal::abs((A[c][h][w] - B[c][h][w]) / B[c][h][w]) > t)
           return false;
 
   return true;
@@ -186,7 +192,7 @@ bool tensor_lib::compareTensors(const std::vector<std::vector<std::vector<std::v
     for(size_t c=0; c<C; c++)
       for(size_t h=0; h<H; h++)
         for(size_t w=0; w<W; w++)
-          if(std::abs((A[k][c][h][w] - B[k][c][h][w]) / B[k][c][h][w]) > t)
+          if(internal::abs((A[k][c][h][w] - B[k][c][h][w]) / B[k][c][h][w]) > t)
             return false;
 
   return true;
