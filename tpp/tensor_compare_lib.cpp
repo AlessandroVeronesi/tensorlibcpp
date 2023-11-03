@@ -4,7 +4,10 @@
 template <typename T>
 static T tensor_lib::internal::abs(const T& value)
 {
-  return (value < T(0))? (T(0) - value) : value;
+  using backend_t = typename std::conditional<(std::is_integral<T>::value || std::is_floating_point<T>::value), T, double>::type;
+  backend_t _value = backend_t(value);
+  _value = std::abs(_value);
+  return T(_value);
 }
 
 template <typename T>
