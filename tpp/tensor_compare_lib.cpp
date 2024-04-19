@@ -14,8 +14,10 @@ template <typename T>
 bool tensor_lib::compareArray(const T* A, const T* B, const size_t Size)
 {
   for(size_t i=0; i<Size; i++)
-    if(A[i] != B[i])
+    if(A[i] != B[i]) {
+      std::cout << "DEBUG: Mismatch at idx=" << i << std::endl;
       return false;
+    }
 
   return true;
 }
