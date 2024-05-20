@@ -45,7 +45,7 @@ constexpr unsigned minNegBitVal(const unsigned bitwidth)
 // RESHAPE
 template<typename T>
 void reshape(
-  std::vector<T> Tensor,
+  std::vector<T>& Tensor,
   const size_t len
 )
 {
@@ -54,7 +54,7 @@ void reshape(
 
 template<typename T>
 void reshape(
-  std::vector<std::vector<T> > Tensor,
+  std::vector<std::vector<T> >& Tensor,
   const size_t W,
   const size_t H
 )
@@ -64,7 +64,7 @@ void reshape(
 
 template<typename T>
 void reshape(
-  std::vector<std::vector<std::vector<T> > > Tensor,
+  std::vector<std::vector<std::vector<T> > >& Tensor,
   const size_t W,
   const size_t H,
   const size_t C
@@ -75,7 +75,7 @@ void reshape(
 
 template<typename T>
 void reshape(
-  std::vector<std::vector<std::vector<std::vector<T> > > > Tensor,
+  std::vector<std::vector<std::vector<std::vector<T> > > >& Tensor,
   const size_t W,
   const size_t H,
   const size_t C,
