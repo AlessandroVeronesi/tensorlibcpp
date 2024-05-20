@@ -49,6 +49,7 @@ void reshape(
   const size_t len
 )
 {
+  Tensor.clear();
   Tensor.resize(len, 0);
 }
 
@@ -59,6 +60,7 @@ void reshape(
   const size_t H
 )
 {
+  Tensor.clear();
   Tensor.resize(H, std::vector<T>(W, 0));
 }
 
@@ -70,6 +72,7 @@ void reshape(
   const size_t C
 )
 {
+  Tensor.clear();
   Tensor.resize(C, std::vector<std::vector<T> >(H, std::vector<T>(W, 0)));
 }
 
@@ -82,6 +85,7 @@ void reshape(
   const size_t K
 )
 {
+  Tensor.clear();
   Tensor.resize(K, std::vector<std::vector<std::vector<T> > >(C, std::vector<std::vector<T> >(H, std::vector<T>(W, 0))));
 }
 

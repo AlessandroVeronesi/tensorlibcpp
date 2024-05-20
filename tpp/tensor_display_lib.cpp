@@ -25,10 +25,11 @@ template <typename T>
 void tensor_lib::print(const std::vector<std::vector<std::vector<T> > > & tensor)
 {
   const unsigned surfaceStride = tensor.size();
-  std::cout << "[" << std::endl;
-  for(unsigned plane=0; plane<surfaceStride; plane++)
+  for(unsigned plane=0; plane<surfaceStride; plane++) {
+    std::cout << "[" << std::endl;
     print(tensor[plane]);
-  std::cout << "]" << std::endl;
+    std::cout << "]," << std::endl;
+  }
 }
 
 template <typename T>
