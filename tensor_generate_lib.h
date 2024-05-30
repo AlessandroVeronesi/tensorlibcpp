@@ -42,53 +42,6 @@ constexpr unsigned minNegBitVal(const unsigned bitwidth)
   return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((minNegBitVal(bitwidth-1) << 1) | 0x0));
 }
 
-// RESHAPE
-template<typename T>
-void reshape(
-  std::vector<T>& Tensor,
-  const size_t len
-)
-{
-  Tensor.clear();
-  Tensor.resize(len, 0);
-}
-
-template<typename T>
-void reshape(
-  std::vector<std::vector<T> >& Tensor,
-  const size_t W,
-  const size_t H
-)
-{
-  Tensor.clear();
-  Tensor.resize(H, std::vector<T>(W, 0));
-}
-
-template<typename T>
-void reshape(
-  std::vector<std::vector<std::vector<T> > >& Tensor,
-  const size_t W,
-  const size_t H,
-  const size_t C
-)
-{
-  Tensor.clear();
-  Tensor.resize(C, std::vector<std::vector<T> >(H, std::vector<T>(W, 0)));
-}
-
-template<typename T>
-void reshape(
-  std::vector<std::vector<std::vector<std::vector<T> > > >& Tensor,
-  const size_t W,
-  const size_t H,
-  const size_t C,
-  const size_t K
-)
-{
-  Tensor.clear();
-  Tensor.resize(K, std::vector<std::vector<std::vector<T> > >(C, std::vector<std::vector<T> >(H, std::vector<T>(W, 0))));
-}
-
 // Randomizer
 
 // INT randTensor
