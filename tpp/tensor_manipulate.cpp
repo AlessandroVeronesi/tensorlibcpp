@@ -74,6 +74,24 @@ void tensor_lib::rollback(
 
 template<typename T>
 void tensor_lib::rollback(
+    const std::vector<T>& array,
+    std::vector<std::vector<std::vector<std::vector<T> > > >& tensor
+    )
+{
+    size_t W = 1;
+    size_t H = 1;
+    size_t C = array.size();
+    size_t B = 1;
+
+    tensor_lib::reshape(tensor, W, H, C, B);
+
+    for(size_t c=0; c<C; c++) {
+        tensor[0][c][0][0] = array[c];
+    }
+}
+
+template<typename T>
+void tensor_lib::rollback(
     const std::vector<std::vector<T> >& array,
     std::vector<std::vector<std::vector<std::vector<T> > > >& tensor
     )

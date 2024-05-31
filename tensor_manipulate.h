@@ -31,6 +31,12 @@ void rollback(
     );
 
 template<typename T>
+void tensor_lib::rollback(
+    const std::vector<T>& array,
+    std::vector<std::vector<std::vector<std::vector<T> > > >& tensor
+    );
+
+template<typename T>
 void rollback(
     const std::vector<std::vector<T> >& array,
     std::vector<std::vector<std::vector<std::vector<T> > > >& tensor
