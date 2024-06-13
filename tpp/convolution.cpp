@@ -20,13 +20,13 @@ int tensor_lib::debug::convolution(
   //* ================================ *//
 
   // Input Tensors Shapes
-  const unsigned H = InFmap[0][0][0].size();
-  const unsigned W = InFmap[0][0].size();
+  const unsigned W = InFmap[0][0][0].size();
+  const unsigned H = InFmap[0][0].size();
   const unsigned C = InFmap[0].size();
   const unsigned BatchSize = InFmap.size();
 
-  const unsigned R  = Kmap[0][0][0].size();
-  const unsigned S  = Kmap[0][0].size();
+  const unsigned S  = Kmap[0][0][0].size();
+  const unsigned R  = Kmap[0][0].size();
   const unsigned Ck = Kmap[0].size();
   const unsigned K  = Kmap.size();
 
@@ -57,9 +57,8 @@ int tensor_lib::debug::convolution(
   }
 
   // Output Tensor Shapes
-  //unsigned S_ = (S-1)*Dilatation+1;
-  unsigned S_ = S;
-  unsigned R_ = S_;
+  unsigned S_ = (S-1)*Dilatation+1;
+  unsigned R_ = (R-1)*Dilatation+1;
 
   unsigned W_ = ((2*Padding + W - S_)/Stride)+1;
   unsigned H_ = ((2*Padding + H - R_)/Stride)+1;
@@ -75,9 +74,9 @@ int tensor_lib::debug::convolution(
       for(unsigned h=0; h<H_; h++)
         for(unsigned w=0; w<W_; w++)
           for(unsigned c=0; c<C; c++)
-            for(unsigned s=0; s<S; s++)
-              for(unsigned r=0; r<R; r++)
-                Omap[batch_iter][k][h][w] += InFmap[batch_iter][c][(h*Stride) - Padding + s][(w*Stride) - Padding + r] * Kmap[k][c][s][r];
+            for(unsigned r=0; r<R; r++)
+              for(unsigned s=0; s<S; s++)
+                Omap[batch_iter][k][h][w] += InFmap[batch_iter][c][(h*Stride) - Padding + r][(w*Stride) - Padding + s] * Kmap[k][c][r][s];
 
   // Exit
   return 0;
