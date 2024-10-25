@@ -7,15 +7,6 @@ namespace tensor_lib {
 namespace internal {
 
 template <typename T>
-requires(std::is_integral<T>::value)
-T randInt(const size_t& bitwidth)
-{
-  T range = (0x1 << (bitwidth-1));
-  T lobound = -(0x1 << (bitwidth-1));
-  return (rand() % range) + lobound;
-}
-
-template <typename T>
 struct uniform_distribution_traits
 {
   using backend_t = typename std::conditional<(std::is_integral<T>::value || std::is_floating_point<T>::value), T, double>::type;

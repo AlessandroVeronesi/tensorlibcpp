@@ -10,7 +10,7 @@ void tensor_lib::randTensor(std::vector<myType> & foo)
 
   for(unsigned c=0; c<C; c++)
     do {
-      foo[c] = tensor_lib::internal::randInt<myType>(bitwidth);
+      foo[c] = internal::uniform_rand(-(1<<(bitwidth-1)), ((1<<(bitwidth-1))-1));
     } while(!foo[c]);
 }
 
@@ -25,7 +25,7 @@ void tensor_lib::randTensor(std::vector<std::vector<myType> > & foo)
   for(unsigned h=0; h<H; h++)
     for(unsigned w=0; w<W; w++) {
       do {
-        foo[h][w] = tensor_lib::internal::randInt<myType>(bitwidth);
+        foo[h][w] = internal::uniform_rand(-(1<<(bitwidth-1)), ((1<<(bitwidth-1))-1));
       } while(!foo[h][w]);
     }
 }
@@ -43,7 +43,7 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<myType> > >& foo
     for(unsigned h=0; h<H; h++)
       for(unsigned w=0; w<W; w++) {
         do {
-          foo[c][h][w] = tensor_lib::internal::randInt<myType>(bitwidth);
+          foo[c][h][w] = internal::uniform_rand(-(1<<(bitwidth-1)), ((1<<(bitwidth-1))-1));
         } while(!foo[c][h][w]);
       }
 }
@@ -63,7 +63,7 @@ void tensor_lib::randTensor(std::vector<std::vector<std::vector<std::vector<myTy
       for(unsigned h=0; h<H; h++)
         for(unsigned w=0; w<W; w++) {
           do {
-            foo[k][c][h][w] = tensor_lib::internal::randInt<myType>(bitwidth);
+            foo[k][c][h][w] = internal::uniform_rand(-(1<<(bitwidth-1)), ((1<<(bitwidth-1))-1));
           } while(!foo[k][c][h][w]);
         }
 }
