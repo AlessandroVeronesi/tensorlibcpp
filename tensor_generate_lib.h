@@ -7,6 +7,15 @@ namespace tensor_lib {
 namespace internal {
 
 template <typename T>
+requires(std::is_integral<T>::value)
+T randInt(const size_t& bitwidth)
+{
+  T range = (0x1 << (bitwidth-1));
+  T lobound = -(0x1 << (bitwidth-1));
+  return (rand() % range) + lobound;
+}
+
+template <typename T>
 struct uniform_distribution_traits
 {
   using backend_t = typename std::conditional<(std::is_integral<T>::value || std::is_floating_point<T>::value), T, double>::type;
@@ -29,17 +38,6 @@ T uniform_rand(const T& lobound, const T&hibound)
   return T(distr(gen));
 }
 
-}
-
-// Static bitmask generation
-constexpr unsigned maxBitVal(const unsigned bitwidth)
-{
-  return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((maxBitVal(bitwidth-1) << 1) | 0x1));
-}
-
-constexpr unsigned minNegBitVal(const unsigned bitwidth)
-{
-  return (bitwidth==0)? 0 : ((bitwidth==1)? 0x1 : ((minNegBitVal(bitwidth-1) << 1) | 0x0));
 }
 
 // Randomizer
