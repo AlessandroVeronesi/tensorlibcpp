@@ -19,7 +19,18 @@ int convolution(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned Stride, const unsigned Padding, const unsigned Dilatation
+  const unsigned Stride, const unsigned Padding, const unsigned Dilation
+  );
+
+// Convolution
+template <typename T>
+int convolution(
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
+  std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
+  const unsigned StrideX,   const unsigned StrideY,
+  const unsigned PaddingX,  const unsigned PaddingY,
+  const unsigned DilationX, const unsigned DilationY
   );
 
 // Bias Addition

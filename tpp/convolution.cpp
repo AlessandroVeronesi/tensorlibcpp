@@ -6,7 +6,7 @@ int tensor_lib::debug::convolution(
   const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
   const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
   std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
-  const unsigned Stride, const unsigned Padding, const unsigned Dilatation
+  const unsigned Stride, const unsigned Padding, const unsigned Dilation
   )
 {
   //* ================================ *//
@@ -15,7 +15,7 @@ int tensor_lib::debug::convolution(
   //
   //  FIXME: known limitations
   //  Supports only squared Tensors and Kernels
-  //  Dilatation not supported
+  //  Dilation not supported
   //
   //* ================================ *//
 
@@ -51,14 +51,14 @@ int tensor_lib::debug::convolution(
     return -1;
   }
 
-  if((Dilatation > 1) || !Dilatation){
-    std::cerr << "INFO: Dilatation not supported, must be 1" << std::endl;
+  if(Dilation != 1){
+    std::cerr << "INFO: Dilation not supported, must be 1" << std::endl;
     return -1;
   }
 
   // Output Tensor Shapes
-  unsigned S_ = (S-1)*Dilatation+1;
-  unsigned R_ = (R-1)*Dilatation+1;
+  unsigned S_ = (S-1)*Dilation+1;
+  unsigned R_ = (R-1)*Dilation+1;
 
   unsigned W_ = ((2*Padding + W - S_)/Stride)+1;
   unsigned H_ = ((2*Padding + H - R_)/Stride)+1;
@@ -69,14 +69,88 @@ int tensor_lib::debug::convolution(
   Omap.resize(BatchSize, std::vector<std::vector<std::vector<T> > >(C_, std::vector<std::vector<T> >(H_, std::vector<T>(W_, 0))));
 
   // Conv Computation Core
-  for(unsigned batch_iter=0; batch_iter<BatchSize; batch_iter++)
+  for(unsigned b=0; b<BatchSize; b++)
     for(unsigned k=0; k<C_; k++)
       for(unsigned h=0; h<H_; h++)
         for(unsigned w=0; w<W_; w++)
           for(unsigned c=0; c<C; c++)
             for(unsigned r=0; r<R; r++)
               for(unsigned s=0; s<S; s++)
-                Omap[batch_iter][k][h][w] += InFmap[batch_iter][c][(h*Stride) - Padding + r][(w*Stride) - Padding + s] * Kmap[k][c][r][s];
+                Omap[b][k][h][w] += InFmap[b][c][(h*Stride) - Padding + r][(w*Stride) - Padding + s] * Kmap[k][c][r][s];
+
+  // Exit
+  return 0;
+}
+
+///////////////////////////////////////
+
+template <typename T>
+int tensor_lib::debug::convolution(
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& InFmap,
+  const std::vector<std::vector<std::vector<std::vector<T> > > >& Kmap,
+  std::vector<std::vector<std::vector<std::vector<T> > > >& Omap,
+  const unsigned StrideX,   const unsigned StrideY,
+  const unsigned PaddingX,  const unsigned PaddingY,
+  const unsigned DilationX, const unsigned DilationY
+  )
+{
+  //* ================================ *//
+  //  Behavioural Implementation 
+  //  of the Convolution operation
+  //* ================================ *//
+
+  // Input Tensors Shapes
+  const unsigned W  = InFmap[0][0][0].size();
+  const unsigned H  = InFmap[0][0].size();
+  const unsigned C  = InFmap[0].size();
+  const unsigned B  = InFmap.size();
+
+  const unsigned S  = Kmap[0][0][0].size();
+  const unsigned R  = Kmap[0][0].size();
+  const unsigned Ck = Kmap[0].size();
+  const unsigned K  = Kmap.size();
+
+  // Parameters Check
+  if(!(StrideX > 0) || !(StrideY > 0)) {
+    std::cerr << "\033[1;31mERROR: Stride must be at least 1\033[0m" << std::endl;
+    return -1;
+  }
+
+  if(C != Ck) {
+    std::cerr << "\033[1;31mERROR: Filter-Input C shapes don't match\033[0m" << std::endl;
+    return -1;
+  }
+
+  if((DilationX != 1) || (DilationY != 1)){
+    std::cerr << "INFO: Dilation not supported, must be 1" << std::endl;
+    return -1;
+  }
+
+  // Output Tensor Shapes
+  unsigned S_ = (S-1)*DilationX+1;
+  unsigned R_ = (R-1)*DilationY+1;
+
+  unsigned W_ = ((2*PaddingX + W - S_)/StrideX)+1;
+  unsigned H_ = ((2*PaddingY + H - R_)/StrideY)+1;
+  unsigned C_ = K;
+
+  // Apply Padding
+  std::vector<std::vector<std::vector<std::vector<T> > > > InFmapPad;
+  padding(InFmap, InFmapPad, PaddingX, PaddingY);
+
+  // Clear Output
+  Omap.clear();
+  Omap.resize(B, std::vector<std::vector<std::vector<T> > >(C_, std::vector<std::vector<T> >(H_, std::vector<T>(W_, 0))));
+
+  // Conv Computation Core
+  for(unsigned b=0; b<B; b++)
+    for(unsigned k=0; k<C_; k++)
+      for(unsigned h=0; h<H_; h++)
+        for(unsigned w=0; w<W_; w++)
+          for(unsigned c=0; c<C; c++)
+            for(unsigned r=0; r<R; r++)
+              for(unsigned s=0; s<S; s++)
+                Omap[b][k][h][w] += InFmapPad[b][c][(h*StrideY) + r][(w*StrideX) + s] * Kmap[k][c][r][s];
 
   // Exit
   return 0;
