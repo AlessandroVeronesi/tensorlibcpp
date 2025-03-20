@@ -62,7 +62,7 @@ void padding(
     size_t W = in_tensor[0][0][0].size();
 
     size_t He = H + 2*PaddingY;
-    size_t We = H + 2*PaddingX;
+    size_t We = W + 2*PaddingX;
 
     out_tensor.clear();
     out_tensor.resize(B, std::vector<std::vector<std::vector<T> > >(C, std::vector<std::vector<T> >(He, std::vector<T>(We, 0))));
